@@ -1,0 +1,98 @@
+{
+  "g": {
+    "btn": {
+      "edit": "Edit",
+      "add": "Add",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save",
+      "confirm": "Confirm",
+      "go-back": "GoBack",
+      "reset-password": "ResetPassword",
+      "reset": "Reset",
+      "view": "View",
+      "dowload": "Dowload",
+      "copy": "Copy"
+    },
+    "dialog": {
+      "default-title": "Title"
+    },
+    "system": {
+      "system-name": "DashBoard Base"
+    },
+    "prefix": {
+      "edit": "Edit",
+      "add": "Add",
+      "view": "View"
+    }
+  },
+  "login": {
+    "title": "Log in",
+    "btn": {
+      "login": "Login",
+      "forget-password": "ForgetPassword"
+    },
+    "loginForm": {
+      "account": "Account",
+      "password": "Password"
+    }
+  },
+  "meun": {
+    "dashboard": "Dashboard",
+    "company": "Company",
+    "profile": "Profile",
+    "logout": "Logout",
+    "company-job": "CompanyJob",
+    "user-manage": "UserManage",
+    "role": "Role",
+    "system-log": "SystemLog",
+    "system-information-manage": "SystemInformationManage",
+    "basic-setting": "BasicSetting"
+  },
+  "company-job": {
+    "title": "CompanyJob"
+  },
+  "user": {
+    "title": "User"
+  },
+  "role": {
+    "title": "Role"
+  },
+  "system-log": {
+    "title": "SystemLog"
+  },
+  "entry": {
+    "register": {
+      "title": "Register",
+      "btn": {
+        "register": "Register"
+      }
+    },
+    "login": {
+      "title": "LogIn",
+      "btn": {
+        "forget-password": "ForgetPassword",
+        "login": "Login"
+      },
+      "loginForm": {
+        "account": "Account",
+        "password": "Password"
+      }
+    }
+  },
+  "mail-log": {
+    "title": "MailLog"
+  },
+  "mailinfo": {
+    "title": "Mailinfo"
+  },
+  "company": {
+    "title": "Company"
+  },
+  "operate-log": {
+    "title": "OperateLog"
+  },
+  "browser-history-report": {
+    "title": "BrowserHistoryReport"
+  }
+}
