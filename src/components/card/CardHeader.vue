@@ -3,7 +3,7 @@
     <slot name="header">
       <div class="row items-center justify-between">
         <div class="flex items-center">
-          <div class="text-h6 card-title">
+          <div class="text-h6">
             <slot />
           </div>
         </div>
@@ -26,15 +26,4 @@ export default defineComponent({
 </script>
 
 <style lang="postcss" scoped>
-.card-title {
-  @apply px-11px relative;
-
-  &::before {
-    @apply content-[""];
-    @apply top-1/2 left-0 absolute;
-    @apply transform -translate-y-1/2;
-    @apply h-28px w-3px;
-    @apply bg-primary;
-  }
-}
 </style>
