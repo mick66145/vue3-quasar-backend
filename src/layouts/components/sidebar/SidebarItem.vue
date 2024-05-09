@@ -15,7 +15,7 @@
       v-else
       :key="item.groupName"
       v-model="open"
-      class="mx-4"
+      :class="! isNest ? 'mx-4' : ''"
       :group="item.groupName"
       :icon="item.meta.icon"
       :label="$t(item.meta.title)"
@@ -25,6 +25,7 @@
       <q-list
         v-for="(childItem, childIndex) in visibleChildren"
         :key="childIndex"
+        class="my-1"
       >
         <sidebar-item
           v-if="childItem.children && childItem.children.length > 0"
