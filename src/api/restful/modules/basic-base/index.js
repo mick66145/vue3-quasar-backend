@@ -2,7 +2,6 @@ import area from './modules/area'
 import city from './modules/city'
 import auth from './modules/auth'
 import companyJob from './modules/company-job'
-import company from './modules/company'
 import file from './modules/file'
 import role from './modules/role'
 import system from './modules/system'
@@ -19,7 +18,6 @@ export const exportBaseApiModules = () => {
   modules.AuthResource = auth
   modules.CityResource = city
   modules.CompanyJobResource = companyJob
-  modules.CompanyResource = company
   modules.FileResource = file
   modules.RoleResource = role
   modules.SystemResource = system

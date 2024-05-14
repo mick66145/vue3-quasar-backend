@@ -5,7 +5,7 @@ import MainLayout from '@/layouts/MainLayout.vue'
 import EntryLayout from '@/layouts/EntryLayout.vue'
 
 /* Router Modules */
-import companyRouter from './modules/company'
+import companyRouter from '@/@core/modules/company/router'
 import companyJobRouter from './modules/company-job'
 import userRouter from './modules/user'
 import roleRouter from './modules/role'

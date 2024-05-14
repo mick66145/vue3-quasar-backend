@@ -58,13 +58,13 @@
 
 <script>
 import CompanyListSearchBlock from './components/CompanyListSearchBlock.vue'
-import { baseApiModules } from '@/api'
+import { CompanyResource } from '@/@core/modules/company/api'
 import { defineComponent, ref, reactive } from 'vue-demi'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 import useMessageDialog from '@/hooks/useMessageDialog'
 
-const companyResource = new baseApiModules.CompanyResource()
+const companyResource = new CompanyResource()
 
 export default defineComponent({
   components: {

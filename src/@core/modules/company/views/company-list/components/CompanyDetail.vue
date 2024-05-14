@@ -160,11 +160,11 @@
 import { defineComponent, ref, onMounted, toRefs } from 'vue-demi'
 import { useRoute } from 'vue-router'
 import { baseModules } from '@/class'
-import { baseApiModules } from '@/api'
+import { CompanyResource } from '@/@core/modules/company/api'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 
-const companyResource = new baseApiModules.CompanyResource()
+const companyResource = new CompanyResource()
 
 export default defineComponent({
   props: {
