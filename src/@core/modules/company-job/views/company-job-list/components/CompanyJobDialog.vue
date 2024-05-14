@@ -18,11 +18,11 @@
 
 <script>
 import { defineComponent } from 'vue-demi'
-import { baseApiModules } from '@/api'
+import { CompanyJobResource } from '@/@core/modules/company-job/api'
 import { baseModules } from '@/class'
 import useDialog from '@/hooks/useDialog'
 
-const companyJobResource = new baseApiModules.CompanyJobResource()
+const companyJobResource = new CompanyJobResource()
 
 export default defineComponent({
   emits: ['save'],

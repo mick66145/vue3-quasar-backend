@@ -14,7 +14,7 @@ const companyJobRouter = {
   children: [
     {
       path: '',
-      component: () => import('@/views/company-job/CompanyJobList.vue'),
+      component: () => import('@/@core/modules/company-job/views/company-job-list/CompanyJobList.vue'),
       name: 'CompanyJobList',
       meta: { title: 'company-job.title', icon: 'fas fa-genderless', permissions: ['view company_job'] },
     },

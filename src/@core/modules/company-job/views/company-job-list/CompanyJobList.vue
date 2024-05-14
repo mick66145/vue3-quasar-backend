@@ -60,13 +60,13 @@
 <script>
 import CompanyJobListSearchBlock from './components/CompanyJobListSearchBlock.vue'
 import CompanyJobDialog from './components/CompanyJobDialog.vue'
-import { baseApiModules } from '@/api'
+import { CompanyJobResource } from '@/@core/modules/company-job/api'
 import { defineComponent, ref, reactive } from 'vue-demi'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 import useMessageDialog from '@/hooks/useMessageDialog'
 
-const companyJobResource = new baseApiModules.CompanyJobResource()
+const companyJobResource = new CompanyJobResource()
 
 export default defineComponent({
   components: {

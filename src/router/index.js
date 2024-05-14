@@ -6,7 +6,7 @@ import EntryLayout from '@/layouts/EntryLayout.vue'
 
 /* Router Modules */
 import companyRouter from '@/@core/modules/company/router'
-import companyJobRouter from './modules/company-job'
+import companyJobRouter from '@/@core/modules/company-job/router'
 import userRouter from './modules/user'
 import roleRouter from './modules/role'
 import mailinfoRouter from './modules/mailinfo'
