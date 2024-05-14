@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import $dayjs from '@/plugins/dayjs'
+import { $dayjs } from '@/plugins/dayjs'
 import { defineComponent, ref, computed, toRefs } from 'vue-demi'
 import { i18n } from '@/plugins/i18n'
 import { useApp } from '@/stores/app'

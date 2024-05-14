@@ -20,21 +20,17 @@ dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.extend(isBetween)
 
-const $dayjs = dayjs
-
-export default $dayjs
+export const $dayjs = dayjs
 
 export const formatDate = (value, format) => {
   if (!value) return ''
   return $dayjs(value).format(format || 'YYYY-MM-DD HH:mm:ss')
 }
 
-export const useDayjs = {
-  install: (app, options) => {
-    app.config.globalProperties.$filters = {
-      formatDate,
-    }
-    app.provide('formatDate', formatDate)
-    app.provide('$dayjs', $dayjs)
-  },
+export default function (app) {
+  app.config.globalProperties.$filters = {
+    formatDate,
+  }
+  app.provide('formatDate', formatDate)
+  app.provide('$dayjs', $dayjs)
 }
