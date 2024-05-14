@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import ImageCropper from '@/components/ImageCropper.vue'
+import ImageCropper from '@/@core/components/ImageCropper.vue'
 import { defineComponent, reactive, ref, computed, onMounted } from 'vue-demi'
 import { useElementBounding, watchOnce } from '@vueuse/core'
 import { Quill } from './quillModule'

@@ -41,12 +41,10 @@ import { defineComponent, ref, reactive, watch } from 'vue-demi'
 import { useRouter } from 'vue-router'
 import { useUser } from '@/stores/user'
 import useCRUD from '@/hooks/useCRUD'
-import CardBody from '@/components/card/CardBody.vue'
 
 export default defineComponent({
   components: {
     ForgetPasswordDialog,
-    CardBody,
   },
   setup () {
     // data
