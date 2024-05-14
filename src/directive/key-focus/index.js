@@ -1,7 +1,5 @@
 import keyFocus from './key-focus'
 
-export default {
-  install (app) {
-    app.directive('keyFocus', keyFocus)
-  },
+export default function (app) {
+  app.directive('keyFocus', keyFocus)
 }

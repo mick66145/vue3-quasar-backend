@@ -157,9 +157,7 @@ export const vuelidate = {
   },
 }
 
-export const useVuelidate = {
-  install: (app, options) => {
-    app.config.globalProperties.$rules = vuelidate
-    app.provide('vuelidate', vuelidate)
-  },
+export default function (app) {
+  app.config.globalProperties.$rules = vuelidate
+  app.provide('vuelidate', vuelidate)
 }

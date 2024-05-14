@@ -31,9 +31,7 @@ export const i18n = createI18n({
   silentFallbackWarn: true,
 })
 
-export default {
-  install (app) {
-    app.use(i18n)
-    app.config.globalProperties.$isLocale = (locale) => locale === i18n.global.locale
-  },
+export default function (app) {
+  app.use(i18n)
+  app.config.globalProperties.$isLocale = (locale) => locale === i18n.global.locale
 }
