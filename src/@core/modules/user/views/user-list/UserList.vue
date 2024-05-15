@@ -66,13 +66,13 @@
 
 <script>
 import UserListSearchBlock from './components/UserListSearchBlock.vue'
-import { baseApiModules } from '@/api'
 import { defineComponent, ref, reactive } from 'vue-demi'
+import { UserResource } from '@/@core/modules/user/api'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 import useMessageDialog from '@/hooks/useMessageDialog'
 
-const userResource = new baseApiModules.UserResource()
+const userResource = new UserResource()
 
 export default defineComponent({
   components: {

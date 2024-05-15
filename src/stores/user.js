@@ -1,4 +1,5 @@
 import { baseApiModules } from '@/api'
+import { UserResource } from '@/@core/modules/user/api'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import { defineStore } from 'pinia'
 import useLogout from '@/hooks/useLogout'
@@ -9,7 +10,7 @@ export const useUser = defineStore({
     token: getToken(),
     info: '',
     permissionList: [],
-    userResource: new baseApiModules.UserResource(),
+    userResource: new UserResource(),
     authResource: new baseApiModules.AuthResource(),
   }),
   actions: {

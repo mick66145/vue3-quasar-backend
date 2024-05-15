@@ -99,15 +99,17 @@
 <script>
 
 import { defineComponent, ref, toRefs, watchEffect, onMounted } from 'vue-demi'
-import { baseModules } from '@/class'
 import { useRoute } from 'vue-router'
+import { baseModules } from '@/class'
+import { UserResource } from '@/@core/modules/user/api'
+import { CompanyJobResource } from '@/@core/modules/company-job/api'
 import { baseApiModules } from '@/api'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 
-const userResource = new baseApiModules.UserResource()
+const userResource = new UserResource()
 const roleResource = new baseApiModules.RoleResource()
-const companyJobResource = new baseApiModules.CompanyJobResource()
+const companyJobResource = new CompanyJobResource()
 
 export default defineComponent({
   props: {
