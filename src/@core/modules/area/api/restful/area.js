@@ -1,6 +1,6 @@
 import Resource from '@/@core/api/restful/resource'
 import request from '@/@core/utils/request'
-import { baseModules } from '@/class'
+import { Area } from '@/@core/modules/area/models'
 
 class AreaResource extends Resource {
   constructor () {
@@ -15,7 +15,7 @@ class AreaResource extends Resource {
     }).then(res => res.data)
       .then(res => {
         res.data.list = [...res.data.list].map((element) => {
-          const areaObj = new baseModules.Area(element)
+          const areaObj = new Area(element)
           return areaObj
         })
         const { list, meta } = res.data
@@ -40,7 +40,7 @@ class AreaResource extends Resource {
       params: query,
     }).then(res => res.data)
       .then(res => {
-        const areaObj = new baseModules.Area({
+        const areaObj = new Area({
           ...res.data,
         })
         return areaObj

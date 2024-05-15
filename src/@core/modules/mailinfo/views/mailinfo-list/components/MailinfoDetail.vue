@@ -101,7 +101,7 @@
 import { defineComponent, ref, toRefs, onMounted } from 'vue-demi'
 import { useRoute } from 'vue-router'
 import { MailinfoResource } from '@/@core/modules/mailinfo/api'
-import { baseModules } from '@/class'
+import { Mailinfo } from '@/@core/modules/mailinfo/models'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 import useDeltaConvert from '@/hooks/useDeltaConvert'
@@ -118,7 +118,7 @@ export default defineComponent({
     // data
     const { mode } = toRefs(props)
     const route = useRoute()
-    const formData = ref(new baseModules.Mailinfo())
+    const formData = ref(new Mailinfo())
     const id = route.params.id || null
 
     // methods

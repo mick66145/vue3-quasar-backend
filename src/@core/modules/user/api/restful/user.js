@@ -1,6 +1,6 @@
 import Resource from '@/@core/api/restful/resource'
 import request from '@/@core/utils/request'
-import { baseModules } from '@/class'
+import { User } from '@/@core/modules/user/models'
 
 class UserResource extends Resource {
   constructor () {
@@ -15,7 +15,7 @@ class UserResource extends Resource {
     }).then(res => res.data)
       .then(res => {
         res.data.list = [...res.data.list].map((element) => {
-          const userObj = new baseModules.User(element)
+          const userObj = new User(element)
           return userObj
         })
         const { list, meta } = res.data
@@ -40,7 +40,7 @@ class UserResource extends Resource {
       params: query,
     }).then(res => res.data)
       .then(res => {
-        const userObj = new baseModules.User({
+        const userObj = new User({
           ...res.data,
         })
         return userObj

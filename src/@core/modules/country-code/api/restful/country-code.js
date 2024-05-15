@@ -1,6 +1,6 @@
 import Resource from '@/@core/api/restful/resource'
 import request from '@/@core/utils/request'
-import { baseModules } from '@/class'
+import { CountryCode } from '@/@core/modules/country-code/models'
 
 class CountryCodeResource extends Resource {
   constructor () {
@@ -15,7 +15,7 @@ class CountryCodeResource extends Resource {
     }).then(res => res.data)
       .then(res => {
         res.data.list = [...res.data.list].map((element) => {
-          const countryCodeObj = new baseModules.CountryCode(element)
+          const countryCodeObj = new CountryCode(element)
           return countryCodeObj
         })
         const { list, meta } = res.data
@@ -40,7 +40,7 @@ class CountryCodeResource extends Resource {
       params: query,
     }).then(res => res.data)
       .then(res => {
-        const countryCodeObj = new baseModules.CountryCode({
+        const countryCodeObj = new CountryCode({
           ...res.data,
         })
         return countryCodeObj

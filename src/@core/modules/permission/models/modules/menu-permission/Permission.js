@@ -1,4 +1,4 @@
-import BasePermission from '../base/BasePermission';
+import BasePermission from '../BasePermission';
 class Permission extends BasePermission {
 
     //map欄位

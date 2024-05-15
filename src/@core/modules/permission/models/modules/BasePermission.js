@@ -1,4 +1,4 @@
-import Base from '@/@core/models/modules/Base'
+
 class BasePermission {
     //api
     id = ""            //權限ID

@@ -83,7 +83,7 @@ import { defineComponent, ref, toRefs, onMounted } from 'vue-demi'
 import { useRoute } from 'vue-router'
 import { MenuPermissionResource } from '@/@core/modules/permission/api'
 import { RoleResource } from '@/@core/modules/role/api'
-import { baseModules } from '@/class'
+import { Role } from '@/@core/modules/role/models'
 import { breadthFirstSearch } from '@/utils/tree'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
@@ -100,7 +100,7 @@ export default defineComponent({
     // data
     const { mode } = toRefs(props)
     const route = useRoute()
-    const formData = ref(new baseModules.Role())
+    const formData = ref(new Role())
     const allSelectd = ref(false)
     const menuPermissionList = ref([])
     const id = route.params.id || null

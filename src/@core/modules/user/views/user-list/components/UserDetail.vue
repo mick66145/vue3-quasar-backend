@@ -100,10 +100,10 @@
 
 import { defineComponent, ref, toRefs, watchEffect, onMounted } from 'vue-demi'
 import { useRoute } from 'vue-router'
-import { baseModules } from '@/class'
 import { UserResource } from '@/@core/modules/user/api'
 import { CompanyJobResource } from '@/@core/modules/company-job/api'
 import { RoleResource } from '@/@core/modules/role/api'
+import { User } from '@/@core/modules/user/models'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 
@@ -119,7 +119,7 @@ export default defineComponent({
     // data
     const { mode } = toRefs(props)
     const route = useRoute()
-    const formData = ref(new baseModules.User())
+    const formData = ref(new User())
     const roleList = ref([])
     const companyJobList = ref([])
 

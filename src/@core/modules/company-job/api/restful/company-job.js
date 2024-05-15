@@ -1,6 +1,6 @@
 import Resource from '@/@core/api/restful/resource'
 import request from '@/@core/utils/request'
-import { baseModules } from '@/class'
+import { CompanyJob } from '@/@core/modules/company-job/models'
 
 class CompanyJobResource extends Resource {
   constructor () {
@@ -15,7 +15,7 @@ class CompanyJobResource extends Resource {
     }).then(res => res.data)
       .then(res => {
         res.data.list = [...res.data.list].map((element) => {
-          const companyJobObj = new baseModules.CompanyJob(element)
+          const companyJobObj = new CompanyJob(element)
           return companyJobObj
         })
         const { list, meta } = res.data
@@ -40,7 +40,7 @@ class CompanyJobResource extends Resource {
       params: query,
     }).then(res => res.data)
       .then(res => {
-        const companyJobObj = new baseModules.CompanyJob({
+        const companyJobObj = new CompanyJob({
           ...res.data,
         })
         return companyJobObj

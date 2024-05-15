@@ -1,6 +1,7 @@
 import Base from '@/@core/models/modules/Base'
-import BasePermission from './base/BasePermission';
+import { BasePermission } from '@/@core/modules/permission/models'
 import { convertDateTime } from '@/utils/data-convert'
+
 class Role extends Base {
 
   //api欄位
