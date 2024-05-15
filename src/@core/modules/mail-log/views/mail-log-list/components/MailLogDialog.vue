@@ -13,7 +13,7 @@
 <script>
 import { defineComponent } from 'vue-demi'
 import { MailLogResource } from '@/@core/modules/mail-log/api'
-import { baseModules } from '@/class'
+import { MailLog } from '@/@core/modules/mail-log/models'
 import useDialog from '@/hooks/useDialog'
 
 const mailLogResource = new MailLogResource()
@@ -35,7 +35,7 @@ export default defineComponent({
 
     // use
     const { form, data, isShowDialog, showDialog, save } = useDialog({
-      formData: new baseModules.MailLog(),
+      formData: new MailLog(),
       readFetch: readFetch,
     })
 

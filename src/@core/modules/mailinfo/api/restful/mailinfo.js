@@ -1,6 +1,6 @@
 import Resource from '@/@core/api/restful/resource'
 import request from '@/@core/utils/request'
-import { baseModules } from '@/class'
+import { Mailinfo } from '@/@core/modules/mailinfo/models'
 
 class MailinfoResource extends Resource {
   constructor () {
@@ -15,7 +15,7 @@ class MailinfoResource extends Resource {
     }).then(res => res.data)
       .then(res => {
         res.data.list = [...res.data.list].map((element) => {
-          const mailinfoObj = new baseModules.Mailinfo(element)
+          const mailinfoObj = new Mailinfo(element)
           return mailinfoObj
         })
         const { list, meta } = res.data
@@ -40,7 +40,7 @@ class MailinfoResource extends Resource {
       params: query,
     }).then(res => res.data)
       .then(res => {
-        const mailinfoObj = new baseModules.Mailinfo({
+        const mailinfoObj = new Mailinfo({
           ...res.data,
         })
         return mailinfoObj

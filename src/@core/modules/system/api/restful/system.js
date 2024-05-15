@@ -1,6 +1,6 @@
 import Resource from '@/@core/api/restful/resource'
 import request from '@/@core/utils/request'
-import { baseModules } from '@/class'
+import { SystemRecordLog } from '@/@core/modules/system/models'
 
 class SystemResource extends Resource {
   constructor () {
@@ -15,7 +15,7 @@ class SystemResource extends Resource {
     }).then(res => res.data)
       .then(res => {
         res.data.list = [...res.data.list].map((element) => {
-          const systemLogObj = new baseModules.SystemRecordLog(element)
+          const systemLogObj = new SystemRecordLog(element)
           return systemLogObj
         })
         const { list, meta } = res.data

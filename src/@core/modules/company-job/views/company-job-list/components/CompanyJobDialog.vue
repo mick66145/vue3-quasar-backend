@@ -19,7 +19,7 @@
 <script>
 import { defineComponent } from 'vue-demi'
 import { CompanyJobResource } from '@/@core/modules/company-job/api'
-import { baseModules } from '@/class'
+import { CompanyJob } from '@/@core/modules/company-job/models'
 import useDialog from '@/hooks/useDialog'
 
 const companyJobResource = new CompanyJobResource()
@@ -38,7 +38,7 @@ export default defineComponent({
       return await companyJobResource.patch(id, payload)
     }
     const onSave = async () => {
-      const [res, error] = await save()
+      const [res] = await save()
       if (res) emit('save')
     }
     const onHide = () => {
@@ -47,7 +47,7 @@ export default defineComponent({
 
     // use
     const { form, data, isShowDialog, showDialog, save } = useDialog({
-      formData: new baseModules.CompanyJob(),
+      formData: new CompanyJob(),
       readFetch: readFetch,
       createFetch: createFetch,
       updateFetch: updateFetch,

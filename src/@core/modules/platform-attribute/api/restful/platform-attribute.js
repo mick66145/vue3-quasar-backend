@@ -1,6 +1,6 @@
 import Resource from '@/@core/api/restful/resource'
 import request from '@/@core/utils/request'
-import { baseModules } from '@/class'
+import { PlatformAttribute } from '@/@core/modules/platform-attribute/models'
 
 class PlatformAttributeResource extends Resource {
   constructor () {
@@ -14,7 +14,7 @@ class PlatformAttributeResource extends Resource {
       params: query,
     }).then(res => res.data)
       .then(res => {
-        const platformAttributeObj = new baseModules.PlatformAttribute({
+        const platformAttributeObj = new PlatformAttribute({
           ...res.data,
         })
         return platformAttributeObj
