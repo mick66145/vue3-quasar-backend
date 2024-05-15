@@ -1,4 +1,4 @@
-import Base from '@/class/modules/Base'
+import Base from '@/@core/models/modules/Base'
 
 class Area extends Base {
 
