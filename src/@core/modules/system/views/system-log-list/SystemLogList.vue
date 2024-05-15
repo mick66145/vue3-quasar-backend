@@ -36,12 +36,12 @@
 
 <script>
 import SystemLogListSearchBlock from './components/SystemLogListSearchBlock.vue'
-import { baseApiModules } from '@/api'
 import { defineComponent, ref, reactive } from 'vue-demi'
+import { SystemResource } from '@/@core/modules/system/api'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 
-const systemResource = new baseApiModules.SystemResource()
+const systemResource = new SystemResource()
 
 export default defineComponent({
   components: {
