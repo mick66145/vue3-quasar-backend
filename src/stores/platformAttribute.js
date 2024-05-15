@@ -1,10 +1,10 @@
-import { baseApiModules } from '@/api'
+import { PlatformAttributeResource } from '@/@core/modules/platform-attribute/api'
 import { defineStore } from 'pinia'
 
 export const usePlatformAttribute = defineStore({
   id: 'platformAttribute',
   state: () => ({
-    platformAttributeResource: new baseApiModules.PlatformAttributeResource(),
+    platformAttributeResource: new PlatformAttributeResource(),
     platformAttribute: '',
   }),
   actions: {
