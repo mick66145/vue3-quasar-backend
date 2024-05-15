@@ -5,7 +5,6 @@ import file from './modules/file'
 import role from './modules/role'
 import menuPermission from './modules/menu-permission'
 import platformAttribute from './modules/platform-attribute'
-import mailinfo from './modules/mailinfo'
 import browserHistory from './modules/browser-history'
 import countryCode from './modules/country-code'
 export const exportBaseApiModules = () => {
@@ -17,7 +16,6 @@ export const exportBaseApiModules = () => {
   modules.RoleResource = role
   modules.MenuPermissionResource = menuPermission
   modules.PlatformAttributeResource = platformAttribute
-  modules.MailinfoResource = mailinfo
   modules.BrowserHistoryResource = browserHistory
   modules.CountryCodeResource = countryCode
   return modules

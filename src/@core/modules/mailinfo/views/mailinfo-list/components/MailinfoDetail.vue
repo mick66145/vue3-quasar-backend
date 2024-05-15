@@ -100,13 +100,13 @@
 <script>
 import { defineComponent, ref, toRefs, onMounted } from 'vue-demi'
 import { useRoute } from 'vue-router'
-import { baseApiModules } from '@/api'
+import { MailinfoResource } from '@/@core/modules/mailinfo/api'
 import { baseModules } from '@/class'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 import useDeltaConvert from '@/hooks/useDeltaConvert'
 
-const mailinfoResource = new baseApiModules.MailinfoResource()
+const mailinfoResource = new MailinfoResource()
 
 export default defineComponent({
   components: {
