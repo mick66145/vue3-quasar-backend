@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import { baseApiModules } from '@/api'
-import { useVModel } from '@vueuse/core'
 import { defineComponent, ref, onMounted, toRefs, watch } from 'vue-demi'
+import { useVModel } from '@vueuse/core'
+import { AreaResource } from '@/@core/modules/area/api'
 import useCRUD from '@/hooks/useCRUD'
 
-const areaResource = new baseApiModules.AreaResource()
+const areaResource = new AreaResource()
 
 export default defineComponent({
   props: {
