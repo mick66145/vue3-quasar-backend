@@ -1,5 +1,5 @@
 import Resource from '@/@core/api/restful/resource'
-import request from '@/utils/request'
+import request from '@/@core/utils/request'
 import { baseModules } from '@/class'
 
 class RoleResource extends Resource {

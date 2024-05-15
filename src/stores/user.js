@@ -1,6 +1,6 @@
 import { UserResource } from '@/@core/modules/user/api'
 import { AuthResource } from '@/@core/modules/auth/api'
-import { getToken, setToken, removeToken } from '@/utils/auth'
+import { getToken, setToken, removeToken } from '@/@core/utils/auth'
 import { defineStore } from 'pinia'
 import useLogout from '@/hooks/useLogout'
 

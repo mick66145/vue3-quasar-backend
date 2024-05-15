@@ -1,7 +1,7 @@
 import router, { addRoutes } from './router'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
-import { getToken } from '@/utils/auth' // get token from cookie
+import { getToken } from '@/@core/utils/auth' // get token from cookie
 import { useUser } from '@/stores/user'
 import { usePermission } from '@/stores/permission'
 import { usePlatformAttribute } from '@/stores/platformAttribute'
