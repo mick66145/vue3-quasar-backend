@@ -1,4 +1,4 @@
-import request from '@/utils/request'
+import request from '@/@core/utils/request'
 
 /**
  * Simple RESTful resource class

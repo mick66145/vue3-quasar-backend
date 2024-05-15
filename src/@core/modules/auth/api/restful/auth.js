@@ -1,5 +1,5 @@
 import Resource from '@/@core/api/restful/resource'
-import request from '@/utils/request'
+import request from '@/@core/utils/request'
 
 class AuthResource extends Resource {
   constructor () {
