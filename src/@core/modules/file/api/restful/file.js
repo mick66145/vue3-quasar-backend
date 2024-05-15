@@ -1,5 +1,5 @@
 import Configuration from '@/configuration'
-import Resource from '@/api/restful/resource'
+import Resource from '@/@core/api/restful/resource'
 import request from '@/utils/request'
 
 const fileBaseUrl = `${Configuration('fileServerHost')}`
