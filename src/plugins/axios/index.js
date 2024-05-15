@@ -1,5 +1,5 @@
 import axios from 'axios'
-import storage from '@/utils/storage'
+import { getToken } from '@/@core/utils/auth'
 import configuration from '@/configuration'
 
 const $axios = axios.create({
@@ -13,8 +13,8 @@ export const $axiosPublic = axios.create({
 })
 
 $axios.interceptors.request.use((config) => {
-  if (!storage.getToken()) return config
-  config.headers.Authorization = `Bearer ${storage.getToken()}`
+  if (!getToken()) return config
+  config.headers.Authorization = `Bearer ${getToken()}`
   return config
 })
 
