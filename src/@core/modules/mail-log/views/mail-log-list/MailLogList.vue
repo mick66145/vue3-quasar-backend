@@ -6,30 +6,6 @@
 
     <q-card>
       <card-body>
-        <!-- <div class="row q-mb-sm items-center q-col-gutter-x-md q-col-gutter-y-xs">
-          <div class="col-md-5 col-sm-5 col-xs-12">
-            <input-date-range
-              v-model="search.date_range"
-              class="full-width"
-              dense
-              @update:modelValue="onChangeFilter"
-            />
-          </div>
-          <div class="col-md-5 col-sm-5 col-xs-12">
-            <input-search
-              v-model="search.keyword"
-              class="full-width"
-              dense
-              @update:modelValue="onChangeFilter"
-            />
-          </div>
-          <div class="col-md-2 col-sm-2 col-xs-12">
-            <reset-button
-              class="w-full"
-              @click="onReset"
-            />
-          </div>
-        </div> -->
         <mail-log-list-search-block
           v-model="search"
           class="q-mb-sm"
@@ -73,12 +49,12 @@
 <script>
 import MailLogListSearchBlock from './components/MailLogListSearchBlock.vue'
 import MailLogDialog from './components/MailLogDialog.vue'
-import { baseApiModules } from '@/api'
+import { MailLogResource } from '@/@core/modules/mail-log/api'
 import { defineComponent, ref, reactive } from 'vue-demi'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 
-const mailLogResource = new baseApiModules.MailLogResource()
+const mailLogResource = new MailLogResource()
 
 export default defineComponent({
   components: {

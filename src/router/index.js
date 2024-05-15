@@ -11,7 +11,7 @@ import userRouter from './modules/user'
 import roleRouter from './modules/role'
 import mailinfoRouter from './modules/mailinfo'
 import systemLogRouter from './modules/system-log'
-import mailLogRouter from './modules/mail-log'
+import mailLogRouter from '@/@core/modules/mail-log/router'
 import browserHistoryRouter from './modules/browser-history'
 import basicSettingRouter from './modules/basic-setting'
 

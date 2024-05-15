@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import { baseApiModules } from '@/api'
 import { defineComponent } from 'vue-demi'
+import { MailLogResource } from '@/@core/modules/mail-log/api'
 import { baseModules } from '@/class'
 import useDialog from '@/hooks/useDialog'
 
-const mailLogResource = new baseApiModules.MailLogResource()
+const mailLogResource = new MailLogResource()
 
 export default defineComponent({
   emits: ['save'],

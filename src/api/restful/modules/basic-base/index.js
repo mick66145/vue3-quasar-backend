@@ -7,7 +7,6 @@ import system from './modules/system'
 import user from './modules/user'
 import menuPermission from './modules/menu-permission'
 import platformAttribute from './modules/platform-attribute'
-import mailLog from './modules/mail-log'
 import mailinfo from './modules/mailinfo'
 import browserHistory from './modules/browser-history'
 import countryCode from './modules/country-code'
@@ -22,7 +21,6 @@ export const exportBaseApiModules = () => {
   modules.UserResource = user
   modules.MenuPermissionResource = menuPermission
   modules.PlatformAttributeResource = platformAttribute
-  modules.MailLogResource = mailLog
   modules.MailinfoResource = mailinfo
   modules.BrowserHistoryResource = browserHistory
   modules.CountryCodeResource = countryCode
