@@ -1,4 +1,4 @@
-import Resource from '@/api/restful/resource'
+import Resource from '@/@core/api/restful/resource'
 import request from '@/utils/request'
 
 class AuthResource extends Resource {
