@@ -18,10 +18,10 @@
 
 <script>
 import { defineComponent, ref, onMounted } from 'vue-demi'
-import { baseApiModules } from '@/api'
+import { BrowserHistoryResource } from '@/@core/modules/browser-history/api'
 import useCRUD from '@/hooks/useCRUD'
 
-const browserHistoryResource = new baseApiModules.BrowserHistoryResource()
+const browserHistoryResource = new BrowserHistoryResource()
 
 export default defineComponent({
   setup () {

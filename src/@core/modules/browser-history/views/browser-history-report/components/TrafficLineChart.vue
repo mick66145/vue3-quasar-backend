@@ -11,11 +11,11 @@
 
 <script>
 import { defineComponent, ref, onMounted } from 'vue-demi'
-import { baseApiModules } from '@/api'
+import { BrowserHistoryResource } from '@/@core/modules/browser-history/api'
 import useCRUD from '@/hooks/useCRUD'
 import useCharts from '@/hooks/useChart'
 
-const browserHistoryResource = new baseApiModules.BrowserHistoryResource()
+const browserHistoryResource = new BrowserHistoryResource()
 
 const lineChrtOption = {
   tooltip: {

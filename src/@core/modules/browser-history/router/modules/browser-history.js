@@ -12,7 +12,7 @@ const browserHistoryRouter = {
   children: [
     {
       path: 'browser-history-report',
-      component: () => import('@/views/browser-history/browser-history-report/BrowserHistoryReport.vue'),
+      component: () => import('@/@core/modules/browser-history/views/browser-history-report/BrowserHistoryReport.vue'),
       name: 'BrowserHistoryReport',
       meta: { title: 'browser-history-report.title', icon: 'fas fa-genderless' },
     },

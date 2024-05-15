@@ -12,7 +12,7 @@ import roleRouter from '@/@core/modules/role/router'
 import mailinfoRouter from '@/@core/modules/mailinfo/router'
 import systemLogRouter from '@/@core/modules/system/router'
 import mailLogRouter from '@/@core/modules/mail-log/router'
-import browserHistoryRouter from './modules/browser-history'
+import browserHistoryRouter from '@/@core/modules/browser-history/router'
 import basicSettingRouter from './modules/basic-setting'
 
 export const constantRoutes = [
