@@ -58,13 +58,13 @@
 
 <script>
 import RoleListSearchBlock from './components/RoleListSearchBlock.vue'
-import { baseApiModules } from '@/api'
 import { defineComponent, ref, reactive } from 'vue-demi'
+import { RoleResource } from '@/@core/modules/role/api'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 import useMessageDialog from '@/hooks/useMessageDialog'
 
-const roleResource = new baseApiModules.RoleResource()
+const roleResource = new RoleResource()
 
 export default defineComponent({
   components: {

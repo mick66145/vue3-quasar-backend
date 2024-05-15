@@ -82,13 +82,14 @@
 import { defineComponent, ref, toRefs, onMounted } from 'vue-demi'
 import { useRoute } from 'vue-router'
 import { baseApiModules } from '@/api'
+import { RoleResource } from '@/@core/modules/role/api'
 import { baseModules } from '@/class'
 import { breadthFirstSearch } from '@/utils/tree'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 import _ from 'lodash-es'
 
-const roleResource = new baseApiModules.RoleResource()
+const roleResource = new RoleResource()
 const menuPermissionResource = new baseApiModules.MenuPermissionResource()
 
 export default defineComponent({

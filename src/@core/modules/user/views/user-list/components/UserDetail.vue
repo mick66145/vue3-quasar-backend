@@ -103,12 +103,12 @@ import { useRoute } from 'vue-router'
 import { baseModules } from '@/class'
 import { UserResource } from '@/@core/modules/user/api'
 import { CompanyJobResource } from '@/@core/modules/company-job/api'
-import { baseApiModules } from '@/api'
+import { RoleResource } from '@/@core/modules/role/api'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 
 const userResource = new UserResource()
-const roleResource = new baseApiModules.RoleResource()
+const roleResource = new RoleResource()
 const companyJobResource = new CompanyJobResource()
 
 export default defineComponent({
