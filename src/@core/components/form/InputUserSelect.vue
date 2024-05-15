@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import { baseApiModules } from '@/api'
-import { useVModel } from '@vueuse/core'
 import { defineComponent, ref, onMounted } from 'vue-demi'
+import { UserResource } from '@/@core/modules/user/api'
+import { useVModel } from '@vueuse/core'
 import useCRUD from '@/hooks/useCRUD'
 
-const userResource = new baseApiModules.UserResource()
+const userResource = new UserResource()
 
 export default defineComponent({
   props: {

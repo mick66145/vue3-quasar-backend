@@ -5,14 +5,14 @@ import MainLayout from '@/layouts/MainLayout.vue'
 import EntryLayout from '@/layouts/EntryLayout.vue'
 
 /* Router Modules */
-import companyRouter from './modules/company'
-import companyJobRouter from './modules/company-job'
-import userRouter from './modules/user'
-import roleRouter from './modules/role'
-import mailinfoRouter from './modules/mailinfo'
-import systemLogRouter from './modules/system-log'
-import mailLogRouter from './modules/mail-log'
-import browserHistoryRouter from './modules/browser-history'
+import companyRouter from '@/@core/modules/company/router'
+import companyJobRouter from '@/@core/modules/company-job/router'
+import userRouter from '@/@core/modules/user/router'
+import roleRouter from '@/@core/modules/role/router'
+import mailinfoRouter from '@/@core/modules/mailinfo/router'
+import systemLogRouter from '@/@core/modules/system/router'
+import mailLogRouter from '@/@core/modules/mail-log/router'
+import browserHistoryRouter from '@/@core/modules/browser-history/router'
 import basicSettingRouter from './modules/basic-setting'
 
 export const constantRoutes = [

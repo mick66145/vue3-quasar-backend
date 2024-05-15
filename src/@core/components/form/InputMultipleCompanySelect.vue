@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import { baseApiModules } from '@/api'
-import { useVModel } from '@vueuse/core'
 import { defineComponent, ref, onMounted } from 'vue-demi'
+import { useVModel } from '@vueuse/core'
+import { CompanyResource } from '@/@core/modules/company/api'
 import useCRUD from '@/hooks/useCRUD'
 
-const companyResource = new baseApiModules.CompanyResource()
+const companyResource = new CompanyResource()
 
 export default defineComponent({
   props: {

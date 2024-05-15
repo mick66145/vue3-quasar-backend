@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import { baseApiModules } from '@/api'
-import { useVModel } from '@vueuse/core'
 import { defineComponent, ref, onMounted } from 'vue-demi'
+import { useVModel } from '@vueuse/core'
+import { CityResource } from '@/@core/modules/city/api'
 import useCRUD from '@/hooks/useCRUD'
 
-const cityResource = new baseApiModules.CityResource()
+const cityResource = new CityResource()
 
 export default defineComponent({
   props: {
