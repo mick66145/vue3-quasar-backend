@@ -101,7 +101,7 @@ export const asyncRoutes = [
     groupName: 'first',
     meta: {
       title: 'meun.system-information-manage',
-      icon: 'menu_open',
+      icon: 'fa-solid fa-server',
       slug: 'dropdown',
     },
     children: [
@@ -114,7 +114,7 @@ export const asyncRoutes = [
     groupName: 'first',
     meta: {
       title: 'meun.user-manage',
-      icon: 'menu_open',
+      icon: 'fas fa-solid fa-users',
       slug: 'dropdown',
     },
     children: [
@@ -131,7 +131,7 @@ export const asyncRoutes = [
     groupName: 'first',
     meta: {
       title: 'meun.system-log',
-      icon: 'menu_open',
+      icon: 'fa-solid fa-circle-info',
       slug: 'dropdown',
     },
     children: [
