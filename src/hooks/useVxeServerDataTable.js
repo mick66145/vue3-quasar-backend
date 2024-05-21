@@ -40,7 +40,7 @@ export default function useVxeServerDataTable ({
     setCallback()
     dataTable.value && (dataTable.value.clearAllCheckboxRow())
   }
-  const OnChangeSort = ({ sortList }) => {
+  const onChangeSort = ({ sortList }) => {
     search.page = 1
     if (sortList.length > 0) {
       search.orderby = sortList.map((item) => `${item.field}:${item.order}`).join(',')
@@ -124,7 +124,7 @@ export default function useVxeServerDataTable ({
     onChangePage,
     onChangePageSize,
     onChangeFilter,
-    OnChangeSort,
+    onChangeSort,
     onReset,
     onRefresh,
   }

@@ -23,7 +23,7 @@
           :data="data"
           :total="total"
           :current="search.page"
-          @sort-change="OnChangeSort"
+          @sort-change="onChangeSort"
           @update:current="onChangePage"
         >
           <vxe-column
@@ -113,7 +113,7 @@ export default defineComponent({
       await getDataList({ ...search })
     }
 
-    const { dataTable, search, data, total, onChangePage, onChangeFilter, OnChangeSort, onReset } = useVxeServerDataTable({
+    const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset } = useVxeServerDataTable({
       searchParames: filter,
       sortParames: [{
         field: 'id',
@@ -138,7 +138,7 @@ export default defineComponent({
       search,
       onChangePage,
       onChangeFilter,
-      OnChangeSort,
+      onChangeSort,
       onReset,
       onDelete,
       showDialog,
