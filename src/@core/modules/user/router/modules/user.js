@@ -26,7 +26,7 @@ const userRouter = {
       hidden: true,
     },
     {
-      path: 'edit/:id(\\d+)',
+      path: 'edit/:id',
       component: () => import('@/@core/modules/user/views/user-list/UserEdit.vue'),
       name: 'UserEdit',
       meta: { title: '帳號詳情', permissions: ['update user'] },
