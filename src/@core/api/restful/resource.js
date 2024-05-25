@@ -4,6 +4,7 @@ import request from '@/@core/utils/request'
  * Simple RESTful resource class
  */
 class Resource {
+  model = {};
   constructor (uri) {
     this.uri = uri
   }
@@ -14,14 +15,39 @@ class Resource {
       method: 'get',
       params: query,
     }).then(res => res.data)
+      .then(res => {
+        res.data.list = [...res.data.list].map((element) => {
+          const model = new this.model(element)
+          return model
+        })
+        const { list, meta } = res.data
+        if (meta?.pagination) {
+          const { count, total } = meta.pagination
+          return {
+            list: list,
+            total: total,
+            count: count,
+          }
+        } else {
+          return { list: list }
+        }
+      },
+      )
   }
 
   get (id, query) {
+    query = { ...query, id: id }
     return request({
       url: `/${this.uri}/${id}`,
       method: 'get',
       params: query,
     }).then(res => res.data)
+      .then(res => {
+        const model = new this.model({
+          ...res.data,
+        })
+        return model
+      })
   }
 
   post (params) {
@@ -34,6 +60,7 @@ class Resource {
   }
 
   patch (id, params) {
+    params = { ...params, id: id }
     return request({
       url: `/${this.uri}/${id}`,
       method: 'patch',
@@ -44,6 +71,7 @@ class Resource {
 
   put (id, params) {
     const url = !id ? `/${this.uri}` : `/${this.uri}/${id}`
+    id && ( params = { ...params, id: id })
     return request({
       url: url,
       method: 'put',
@@ -51,15 +79,17 @@ class Resource {
     })
   }
 
-  delete (id) {
+  delete (id, query) {
+    query = { id: id }
     return request({
       url: `/${this.uri}/${id}`,
       method: 'delete',
+      params: query,
     }).then(res => res.data)
   }
 
-  async selectAll (query) {
-    return await request({
+  selectAll (query) {
+    return request({
       url: `/${this.uri}/action/select_all`,
       method: 'get',
       params: query,
@@ -69,6 +99,10 @@ class Resource {
         return { list: list }
       },
       )
+  }
+
+  setModel (model) {
+    this.model = model
   }
 }
 
