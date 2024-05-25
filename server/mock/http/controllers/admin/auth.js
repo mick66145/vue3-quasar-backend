@@ -38,101 +38,121 @@ const permissions = {
   'admin-token': {
     list: [
       {
-        id: 1,
-        name: 'view user_manage',
-        action: 'view',
+        id: 108,
+        name: "view user_manage",
+        action: "view"
       },
       {
-        id: 2,
-        name: 'view company_job',
-        action: 'view',
+        id: 109,
+        name: "view role",
+        action: "view"
       },
       {
-        id: 3,
-        name: 'create company_job',
-        action: 'create',
+        id: 110,
+        name: "create role",
+        action: "create"
       },
       {
-        id: 4,
-        name: 'update company_job',
-        action: 'update',
+        id: 111,
+        name: "update role",
+        action: "update"
       },
       {
-        id: 5,
-        name: 'delete company_job',
-        action: 'delete',
+        id: 112,
+        name: "delete role",
+        action: "delete"
       },
       {
-        id: 6,
-        name: 'view role',
-        action: 'view',
+        id: 117,
+        name: "view user",
+        action: "view"
       },
       {
-        id: 7,
-        name: 'create role',
-        action: 'create',
+        id: 118,
+        name: "create user",
+        action: "create"
       },
       {
-        id: 8,
-        name: 'update role',
-        action: 'update',
+        id: 119,
+        name: "update user",
+        action: "update"
       },
       {
-        id: 9,
-        name: 'delete role',
-        action: 'delete',
+        id: 120,
+        name: "delete user",
+        action: "delete"
       },
       {
-        id: 10,
-        name: 'view user',
-        action: 'view',
+        id: 121,
+        name: "view system_info_manage",
+        action: "view"
       },
       {
-        id: 11,
-        name: 'create user',
-        action: 'create',
+        id: 124,
+        name: "view company_job",
+        action: "view"
       },
       {
-        id: 12,
-        name: 'update user',
-        action: 'update',
+        id: 125,
+        name: "create company_job",
+        action: "create"
       },
       {
-        id: 13,
-        name: 'delete user',
-        action: 'delete',
+        id: 126,
+        name: "update company_job",
+        action: "update"
       },
       {
-        id: 14,
-        name: 'view operate_log',
-        action: 'view',
+        id: 127,
+        name: "delete company_job",
+        action: "delete"
       },
       {
-        id: 15,
-        name: 'view platform_manage',
-        action: 'view',
+        id: 128,
+        name: "view company",
+        action: "view"
       },
       {
-        id: 16,
-        name: 'view company',
-        action: 'view',
+        id: 129,
+        name: "create company",
+        action: "create"
       },
       {
-        id: 17,
-        name: 'create company',
-        action: 'create',
+        id: 130,
+        name: "update company",
+        action: "update"
       },
       {
-        id: 18,
-        name: 'update company',
-        action: 'update',
+        id: 131,
+        name: "delete company",
+        action: "delete"
       },
       {
-        id: 19,
-        name: 'delete company',
-        action: 'delete',
+        id: 136,
+        name: "view system_log_manage",
+        action: "view"
       },
-    ],
+      {
+        id: 137,
+        name: "view operate_log",
+        action: "view"
+      },
+      {
+        id: 138,
+        name: "view mail_log",
+        action: "view"
+      },
+      {
+        id: 156,
+        name: "view mailinfo",
+        action: "view"
+      },
+      {
+        id: 157,
+        name: "update mailinfo",
+        action: "update"
+      }
+    ]
   },
 }
 

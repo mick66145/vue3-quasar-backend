@@ -1,6 +1,6 @@
-import Controller from './http/controller'
+import Controller from '../controller'
 
-const companyJobList = [
+const companyList = [
   {
     id: 1,
     name: '助理',
@@ -9,8 +9,8 @@ const companyJobList = [
   },
 ]
 const keywordColumn = ['name']
-const companyController = new Controller('api/company_job')
-companyController.setList(companyJobList)
+const companyController = new Controller('api/company')
+companyController.setList(companyList)
 
 export default [
   companyController.show(),

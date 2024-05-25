@@ -1,4 +1,4 @@
-import Controller from './http/controller'
+import Controller from '../controller'
 
 const userList = [
   {

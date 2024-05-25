@@ -37,7 +37,7 @@ class Resource {
 
   get (id, query) {
     const url = !id ? `/${this.uri}` : `/${this.uri}/${id}`
-    id && ( query = { ...query, id: id })
+    id && ( query = { ...query, id: +id })
     return request({
       url: url,
       method: 'get',
@@ -61,7 +61,7 @@ class Resource {
   }
 
   patch (id, params) {
-    params = { ...params, id: id }
+    params = { ...params, id: +id }
     return request({
       url: `/${this.uri}/${id}`,
       method: 'patch',
@@ -72,7 +72,7 @@ class Resource {
 
   put (id, params) {
     const url = !id ? `/${this.uri}` : `/${this.uri}/${id}`
-    id && ( params = { ...params, id: id })
+    id && ( params = { ...params, id: +id })
     return request({
       url: url,
       method: 'put',
@@ -81,7 +81,7 @@ class Resource {
   }
 
   delete (id, query) {
-    query = { id: id }
+    query = { id: +id }
     return request({
       url: `/${this.uri}/${id}`,
       method: 'delete',
