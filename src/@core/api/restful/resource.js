@@ -36,9 +36,10 @@ class Resource {
   }
 
   get (id, query) {
-    query = { ...query, id: id }
+    const url = !id ? `/${this.uri}` : `/${this.uri}/${id}`
+    id && ( query = { ...query, id: id })
     return request({
-      url: `/${this.uri}/${id}`,
+      url: url,
       method: 'get',
       params: query,
     }).then(res => res.data)

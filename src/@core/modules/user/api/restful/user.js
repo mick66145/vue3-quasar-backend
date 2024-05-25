@@ -1,52 +1,12 @@
 import Resource from '@/@core/api/restful/resource'
-import request from '@/@core/utils/request'
 import { User } from '@/@core/modules/user/models'
 
 class UserResource extends Resource {
   constructor () {
     super('user')
+    this.setModel(User)
   }
-
-  async list (query) {
-    return await request({
-      url: `/${this.uri}`,
-      method: 'get',
-      params: query,
-    }).then(res => res.data)
-      .then(res => {
-        res.data.list = [...res.data.list].map((element) => {
-          const userObj = new User(element)
-          return userObj
-        })
-        const { list, meta } = res.data
-        if (meta?.pagination) {
-          const { count, total } = meta.pagination
-          return {
-            list: list,
-            total: total,
-            count: count,
-          }
-        } else {
-          return { list: list }
-        }
-      },
-      )
-  }
-
-  async get (id, query) {
-    return await request({
-      url: `/${this.uri}/${id}`,
-      method: 'get',
-      params: query,
-    }).then(res => res.data)
-      .then(res => {
-        const userObj = new User({
-          ...res.data,
-        })
-        return userObj
-      })
-  }
-
+  
   async resetPassword (id) {
     return await request({
       url: `/${this.uri}/${id}/reset_password`,

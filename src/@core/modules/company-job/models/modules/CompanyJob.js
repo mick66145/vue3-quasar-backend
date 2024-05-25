@@ -6,16 +6,14 @@ class CompanyJob extends Base {
   id = "";
   name = "";
   parent_job = "";
-  
-  constructor (obj) {
-    super();
-    (obj) && (this.setInit(obj))
-  }
 
-  setInit (obj) {
-    this.id = obj.id
-    this.name = obj.name
-    this.parent_job = obj.parent_job
+  constructor(obj) {
+    super();
+    if (obj) {
+      this.id = obj?.id
+      this.name = obj?.name
+      this.parent_job = obj?.parent_job
+    }
   }
 }
 export default CompanyJob
