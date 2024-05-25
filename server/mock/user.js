@@ -1,4 +1,4 @@
-import { searchKeysValue } from '../../src/utils/filter'
+import Controller from './http/controller'
 
 const userList = [
   {
@@ -29,91 +29,15 @@ const userList = [
   },
 ]
 
-let id = 3
+const keywordColumn = ['name','email','account']
+const userController = new Controller('api/user')
+userController.setLastId(2)
+userController.setList(userList)
 
 export default [
-  {
-    url: '/api/user',
-    method: 'get',
-    response: config => {
-      // eslint-disable-next-line camelcase
-      const { keyword, page = 1, page_size = 20 } = config.query
-      const keywordFilter = {
-        name: keyword,
-        tel: keyword,
-        tel_service: keyword,
-        address: keyword,
-        email: keyword,
-      }
-      const mockList = keyword ? searchKeysValue([...userList], keywordFilter) : [...userList]
-      // eslint-disable-next-line camelcase
-      const pageList = mockList.filter((item, index) => index < page_size * page && index >= page_size * (page - 1))
-      return {
-        code: 200,
-        data: {
-          list: pageList,
-          meta: {
-            pagination: {
-              total: mockList.length,
-              // eslint-disable-next-line camelcase
-              count: page_size,
-            },
-          },
-        },
-      }
-    },
-  },
-  {
-    url: '/api/user/:id(\\d+)',
-    method: 'get',
-    response: config => {
-      const { id } = config.query
-      for (const companyJob of userList) {
-        if (+companyJob.id === +id) {
-          return {
-            code: 200,
-            data: companyJob,
-          }
-        }
-      }
-    },
-  },
-  {
-    url: '/api/user',
-    method: 'post',
-    response: options => {
-      const body = options.body
-      body.id = id
-      id += 1
-      userList.push(body)
-      return {
-        code: 200,
-        data: body,
-      }
-    },
-  },
-  {
-    url: '/api/user/:id(\\d+)',
-    method: 'patch',
-    response: config => {
-      const { id } = config.query
-      const index = userList.findIndex(x => x.id === id)
-      return {
-        code: 200,
-        data: 'success',
-      }
-    },
-  },
-  {
-    url: '/api/user/:id(\\d+)',
-    method: 'delete',
-    response: config => {
-      const { id } = config.query
-      const index = userList.findIndex(x => x.id === id)
-      return {
-        code: 200,
-        data: 'success',
-      }
-    },
-  },
+  userController.show(),
+  userController.index({keywordColumn}),
+  userController.store(),
+  userController.update(),
+  userController.delete(),
 ]
