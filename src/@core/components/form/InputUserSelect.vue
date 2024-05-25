@@ -31,7 +31,8 @@ export default defineComponent({
     })
 
     // methods
-    const fetchData = async (payload) => {
+    const fetchData = async () => {
+      const payload = {orderby: "created_at:desc"} 
       return await userResource.list(payload).then((res) => {
         userList.value = []
         userList.value = res.list

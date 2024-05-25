@@ -135,7 +135,7 @@ export default defineComponent({
     const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset } = useVxeServerDataTable({
       searchParames: filter,
       sortParames: [{
-        field: 'id',
+        field: 'created_at',
         order: 'desc',
       }],
       sessionStorageKey: 'dashboardUserServerDataTable',
