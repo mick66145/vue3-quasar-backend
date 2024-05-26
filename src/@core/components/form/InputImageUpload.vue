@@ -167,6 +167,14 @@ export default defineComponent({
     &::before {
       @apply border-b-0;
     }
+
+    .q-field__control-container {
+      @apply pt-0;
+
+      .q-field__label {
+        @apply top-0;
+      }
+    }
   }
 }
 
