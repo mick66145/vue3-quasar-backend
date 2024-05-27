@@ -18,7 +18,6 @@ import { registerDirective } from '@/@core/utils/directive'
 import { setupProdMockServer } from '../server/mock'
 
 import '@/styles/index.scss'
-import './permission'
 
 if (import.meta.env === 'development') { setupProdMockServer() }
 useRegisterSW()

@@ -1,4 +1,4 @@
-import router, { addRoutes } from './router'
+import { addRoutes } from '@/router'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 import { getToken } from '@/@core/utils/auth' // get token from cookie
@@ -6,12 +6,14 @@ import { useUser } from '@/stores/user'
 import { usePermission } from '@/stores/permission'
 import { usePlatformAttribute } from '@/stores/platformAttribute'
 import { i18n } from '@/plugins/i18n'
-import getPageTitle from './utils/get-page-title'
+import getPageTitle from '@/utils/get-page-title'
 import useLogout from '@/hooks/useLogout'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
 const whiteList = ['/login', '/auth-redirect', '/register'] // no redirect whitelist
+
+export const setupGuards = router => {
 
 router.beforeEach(async (to, from, next) => {
   // start progress bar
@@ -21,7 +23,6 @@ router.beforeEach(async (to, from, next) => {
   const store = useUser()
   const storePermission = usePermission()
   const storePlatformAttribute = usePlatformAttribute()
-  const { resetStore } = useLogout()
   const hasToken = getToken()
   const hasPlatformAttribute = storePlatformAttribute.platformAttribute
   if (!hasPlatformAttribute) {
@@ -44,6 +45,7 @@ router.beforeEach(async (to, from, next) => {
           addRoutes(accessRoutes, {})
           next({ ...to, replace: true })
         } catch (error) {
+          const { resetStore } = useLogout()
           resetStore()
           next(`/login?redirect=${to.path}`)
           NProgress.done()
@@ -68,3 +70,4 @@ router.afterEach((to) => {
   document.title = getPageTitle(to.meta.title ? i18n.global.t(to.meta.title || 'g.system-system-name', to.params.lang) : '')
   NProgress.done()
 })
+}

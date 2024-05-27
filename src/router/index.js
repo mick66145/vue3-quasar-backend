@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import {setupGuards} from './guard'
 
 /* Layout */
 import MainLayout from '@/layouts/MainLayout.vue'
@@ -159,5 +160,5 @@ export function addRoutes (routes = [], { parent = '' }) {
     }
   })
 }
-
+setupGuards(router)
 export default router
