@@ -61,28 +61,15 @@ export default defineComponent({
     ])
 
     // methods
-    const fetchData = async (payload) => {
-      return await systemResource.recordLoglist(payload).then((res) => {
-        data.value = []
-        data.value = res.list
-        total.value = res.total
-      })
-    }
-
-    const refreshFetch = async () => {
-      await getDataList({ ...search })
-    }
+    const fetchData = (payload) => systemResource.recordLoglist(payload)
+    const refreshFetch = () => getDataList({ ...search })
 
     const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset } = useVxeServerDataTable({
       searchParames: filter,
-      sortParames: [{
-        field: 'id',
-        order: 'desc',
-      }],
+      sortParames: [{ field: 'id', order: 'desc',}],
       sessionStorageKey: 'dashboardSystemLogServerDataTable',
       callback: refreshFetch,
     })
-
     const { callReadListFetch: getDataList } = useCRUD({
       readListFetch: fetchData,
     })
@@ -90,7 +77,6 @@ export default defineComponent({
     return {
       dataTable,
       tableFields,
-      filter,
       data,
       total,
       search,

@@ -35,9 +35,7 @@ export default defineComponent({
     })
 
     // methods
-    const trafficOverviewFetch = async () => {
-      return await browserHistoryResource.trafficOverview()
-    }
+    const trafficOverviewFetch = () => browserHistoryResource.trafficOverview()
 
     // use
     const { callReadListFetch: callTrafficOverviewFetch } = useCRUD({

@@ -81,18 +81,12 @@ export default defineComponent({
     ])
 
     // methods
-    const fetchData = async (payload) => {
-      return await mailLogResource.list(payload).then((res) => {
-        data.value = []
-        data.value = res.list
-        total.value = res.total
-      })
-    }
+    const fetchData = (payload) => mailLogResource.list(payload)
     const refreshFetch = async () => {
       const filter = { ...search }
       filter.start_date = filter.date_range?.from ? filter.date_range.from : null
       filter.end_date = filter.date_range?.to ? filter.date_range.to : null
-      await getDataList({ ...filter })
+      return await getDataList({ ...filter })
     }
     const showDialog = ({ id, mode, callRead }) => {
       dialog.value.showDialog({ id, mode, callRead })
@@ -100,10 +94,7 @@ export default defineComponent({
 
     const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset } = useVxeServerDataTable({
       searchParames: filter,
-      sortParames: [{
-        field: 'id',
-        order: 'desc',
-      }],
+      sortParames: [{field: 'id',order: 'desc',}],
       sessionStorageKey: 'dashboardMailLogServerDataTable',
       callback: refreshFetch,
     })
@@ -116,7 +107,6 @@ export default defineComponent({
       dialog,
       dataTable,
       tableFields,
-      filter,
       data,
       total,
       search,

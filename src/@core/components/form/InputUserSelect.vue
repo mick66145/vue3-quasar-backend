@@ -26,14 +26,14 @@ export default defineComponent({
     const userList = ref([])
 
     // mounted
-    onMounted(async () => {
-      await callReadListFetch()
+    onMounted(() => {
+      callReadListFetch()
     })
 
     // methods
-    const fetchData = async () => {
+    const fetchData = () => {
       const payload = {orderby: "created_at:desc"} 
-      return await userResource.list(payload).then((res) => {
+      return userResource.list(payload).then((res) => {
         userList.value = []
         userList.value = res.list
       })

@@ -28,23 +28,19 @@ export default defineComponent({
     const areaList = ref([])
 
     // mounted
-    onMounted(async () => {
-      if (cityId.value) {
-        await callReadListFetch()
-      }
+    onMounted(() => {
+      if (cityId.value) {callReadListFetch()}
     })
 
     // methods
-    const fetchData = async () => {
+    const fetchData = () => {
       const payload = { city_id: cityId.value }
-      return await areaResource.list(payload).then((res) => {
+      return  areaResource.list(payload).then((res) => {
         areaList.value = []
         areaList.value = res.list
       })
     }
-    const clearData = async () => {
-      areaList.value = []
-    }
+    const clearData = () => { areaList.value = []}
 
     // use
     const { callReadListFetch } = useCRUD({

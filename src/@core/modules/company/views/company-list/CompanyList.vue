@@ -84,39 +84,23 @@ export default defineComponent({
     ])
 
     // methods
-    const fetchData = async (payload) => {
-      return await companyResource.list(payload).then((res) => {
-        data.value = []
-        data.value = res.list
-        total.value = res.total
-      })
-    }
-
-    const delFetch = async (id) => {
-      return await companyResource.delete(id)
-    }
-
+    const fetchData = (payload) => companyResource.list(payload)
+    const delFetch = (id) => companyResource.delete(id)
+    const refreshFetch = () => getDataList({ ...search })
     const onDelete = async (row) => {
       const res = await messageDelete({ title: '刪除', message: '確認刪除公司？' })
       if (!res) return
       const [delRes] = await callDeleteFetch(row.id)
       if (delRes) {
         search.page = 1
-        refreshFetch()
+        onRefresh()
       }
     }
-
-    const refreshFetch = async () => {
-      await getDataList({ ...search })
-    }
-
+    
     // use
-    const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset } = useVxeServerDataTable({
+    const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset, onRefresh } = useVxeServerDataTable({
       searchParames: filter,
-      sortParames: [{
-        field: 'id',
-        order: 'desc',
-      }],
+      sortParames: [{field: 'id',order: 'desc',}],
       sessionStorageKey: 'dashboardCompanyServerDataTable',
       callback: refreshFetch,
     })
@@ -129,7 +113,6 @@ export default defineComponent({
     return {
       dataTable,
       tableFields,
-      filter,
       data,
       total,
       search,

@@ -30,8 +30,8 @@ export default defineComponent({
     const companyList = ref([])
 
     // mounted
-    onMounted(async () => {
-      await callReadListFetch()
+    onMounted(() => {
+      callReadListFetch()
     })
 
     // methods

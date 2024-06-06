@@ -81,9 +81,7 @@ export default defineComponent({
     })
 
     // methods
-    const deviceTypeChartReportFetch = async () => {
-      return await browserHistoryResource.deviceTypeChartReport()
-    }
+    const deviceTypeChartReportFetch = () => browserHistoryResource.deviceTypeChartReport()
 
     // use
     const { callReadListFetch: callDeviceTypeChartReportFetch } = useCRUD({

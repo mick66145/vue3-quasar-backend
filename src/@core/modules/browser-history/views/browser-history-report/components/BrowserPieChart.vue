@@ -81,9 +81,7 @@ export default defineComponent({
     })
 
     // methods
-    const browserChartReportFetch = async () => {
-      return await browserHistoryResource.browserChartReport()
-    }
+    const browserChartReportFetch = () => browserHistoryResource.browserChartReport()
 
     // use
     const { callReadListFetch: callBrowserChartReportFetch } = useCRUD({

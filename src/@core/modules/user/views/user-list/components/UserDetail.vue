@@ -98,7 +98,7 @@
 
 <script>
 
-import { defineComponent, ref, toRefs, watchEffect, onMounted } from 'vue-demi'
+import { defineComponent, ref, toRefs, onMounted } from 'vue-demi'
 import { useRoute } from 'vue-router'
 import { UserResource } from '@/@core/modules/user/api'
 import { CompanyJobResource } from '@/@core/modules/company-job/api'
@@ -122,14 +122,13 @@ export default defineComponent({
     const formData = ref(new User())
     const roleList = ref([])
     const companyJobList = ref([])
-
     const fallBack = { name: 'UserList' }
     const id = route.params.id || null
 
     // mounted
     onMounted(async () => {
-      await callRoleListFetch()
-      await callCompanyJobListFetch()
+      callRoleListFetch()
+      callCompanyJobListFetch()
       if (id) {
         const [res] = await callReadFetch(id)
         formData.value = res
@@ -137,24 +136,19 @@ export default defineComponent({
     })
 
     // methods
-    const readFetch = async (id, payload) => {
-      return await userResource.get(id, payload)
-    }
-    const createFetch = async (payload) => {
-      return await userResource.post(payload)
-    }
-    const updateFetch = async (id, payload) => {
-      return await userResource.patch(id, payload)
-    }
-    const fetchRoleData = async (payload) => {
-      return await roleResource.list(payload).then((res) => {
+    const readFetch =  (id, payload) => userResource.get(id, payload)
+    const createFetch = (payload) => userResource.post(payload)
+    const updateFetch =  (id, payload) => userResource.patch(id, payload)
+    
+    const fetchRoleData =  (payload) => {
+      return roleResource.list(payload).then((res) => {
         roleList.value = []
         roleList.value = res.list
       })
     }
 
-    const fetchCompanyJobData = async (payload) => {
-      return await companyJobResource.list(payload).then((res) => {
+    const fetchCompanyJobData = (payload) => {
+      return companyJobResource.list(payload).then((res) => {
         companyJobList.value = []
         companyJobList.value = res.list
       })
@@ -165,10 +159,8 @@ export default defineComponent({
         if (success) {
           const payload = { ...formData.value }
           const urlObj = {
-            create: () => { return callCreateFetch({ ...payload }) },
-            edit: () => {
-              return callUpdateFetch(id, { ...payload })
-            },
+            create: () => callCreateFetch({ ...payload }),
+            edit: () => callUpdateFetch(id, { ...payload }),
           }
           const [res, error] = mode.value === 'create' ? await urlObj.create() : await urlObj.edit()
           if (res) goBack()
@@ -191,14 +183,7 @@ export default defineComponent({
     const { callReadListFetch: callCompanyJobListFetch } = useCRUD({
       readListFetch: fetchCompanyJobData,
     })
-
-    // watch
-    watchEffect(async () => {
-      if (!id) return
-      const [res, error] = await callReadFetch(id)
-      formData.value = res
-    })
-
+    
     return {
       formData,
       form,

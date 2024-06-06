@@ -93,46 +93,27 @@ export default defineComponent({
     ])
 
     // methods
-    const fetchData = async (payload) => {
-      return await userResource.list(payload).then((res) => {
-        data.value = []
-        data.value = res.list
-        total.value = res.total
-      })
-    }
-
-    const delFetch = async (id) => {
-      return await userResource.delete(id)
-    }
-
-    const resetPasswordFetch = async (id) => {
-      return await userResource.resetPassword(id)
-    }
-
+    const fetchData =  (payload) => userResource.list(payload)
+    const delFetch = (id) => userResource.delete(id)
+    const resetPasswordFetch = (id)=> userResource.resetPassword(id)
+    const refreshFetch = () => callReadListFetch({ ...search })
     const onDelete = async (row) => {
       const res = await messageDelete({ title: '刪除', message: '確認刪除帳號？' })
       if (!res) return
       const [delRes] = await callDeleteFetch(row.id)
       if (delRes) {
         search.page = 1
-        refreshFetch()
+        onRefresh()
       }
     }
-
     const onResetPassword = async (row) => {
       const res = await messageConfirm({ title: '重置密碼', message: '確認重置密碼？' })
       if (!res) return
-      const [resetPasswordRes] = await callResetPasswordFetch(row.id)
-      if (resetPasswordRes) {
-        await messageAlert({ title: '重置密碼成功', message: `密碼變更為 : ${resetPasswordRes.data.password}` })
-      }
+      const [resetPasswordRes] = callResetPasswordFetch(row.id)
+      if (resetPasswordRes) {await messageAlert({ title: '重置密碼成功', message: `密碼變更為 : ${resetPasswordRes.data.password}` })}
     }
-
-    const refreshFetch = async () => {
-      await callReadListFetch({ ...search })
-    }
-
-    const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset } = useVxeServerDataTable({
+    
+    const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset, onRefresh } = useVxeServerDataTable({
       searchParames: filter,
       sortParames: [{
         field: 'created_at',

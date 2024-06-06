@@ -27,12 +27,12 @@ export default defineComponent({
 
     // mounted
     onMounted(async () => {
-      await callReadListFetch()
+      callReadListFetch()
     })
 
     // methods
-    const fetchData = async (payload) => {
-      return await cityResource.list(payload).then((res) => {
+    const fetchData = (payload) => {
+      return cityResource.list(payload).then((res) => {
         cityList.value = []
         cityList.value = res.list
       })

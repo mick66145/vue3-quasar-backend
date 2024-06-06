@@ -53,7 +53,7 @@
         </vxe-server-table>
       </card-body>
     </q-card>
-    <company-job-dialog ref="dialog" @save="refreshFetch" />
+    <company-job-dialog ref="dialog" @save="onRefresh" />
   </q-page>
 </template>
 
@@ -75,45 +75,32 @@ export default defineComponent({
   },
   setup () {
     // data
+    const dialog = ref()
     const filter = reactive({
       keyword: null,
     })
     const tableFields = ref([
       { title: '職稱', field: 'name', min_width: '130' },
     ])
-    const dialog = ref()
-
+    
     // methods
-    const fetchData = async (payload) => {
-      return await companyJobResource.list(payload).then((res) => {
-        data.value = []
-        data.value = res.list
-        total.value = res.total
-      })
-    }
-
-    const delFetch = async (id) => {
-      return await companyJobResource.delete(id)
-    }
-
+    const fetchData = (payload) => companyJobResource.list(payload)
+    const delFetch = (id) => companyJobResource.delete(id)
+    const refreshFetch = () => getDataList({ ...search })
     const onDelete = async (row) => {
       const res = await messageDelete({ title: '刪除', message: '確認刪除職稱？' })
       if (!res) return
       const [delRes] = await callDeleteFetch(row.id)
       if (delRes) {
         search.page = 1
-        refreshFetch()
+        onRefresh()
       }
     }
     const showDialog = ({ id, mode, callRead }) => {
       dialog.value.showDialog({ id, mode, callRead })
     }
-
-    const refreshFetch = async () => {
-      await getDataList({ ...search })
-    }
-
-    const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset } = useVxeServerDataTable({
+    
+    const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset,onRefresh } = useVxeServerDataTable({
       searchParames: filter,
       sortParames: [{
         field: 'id',
@@ -140,9 +127,9 @@ export default defineComponent({
       onChangeFilter,
       onChangeSort,
       onReset,
+      onRefresh,
       onDelete,
-      showDialog,
-      refreshFetch,
+      showDialog
     }
   },
 })

@@ -28,15 +28,10 @@ export default defineComponent({
   emits: ['save'],
   setup (props, { emit }) {
     // methods
-    const readFetch = async (id, payload) => {
-      return await companyJobResource.get(id, payload)
-    }
-    const createFetch = async (payload) => {
-      return await companyJobResource.post(payload)
-    }
-    const updateFetch = async (id, payload) => {
-      return await companyJobResource.patch(id, payload)
-    }
+    const readFetch = (id, payload) => companyJobResource.get(id, payload)
+    const createFetch = (payload) => companyJobResource.post(payload)
+    const updateFetch =  (id, payload) => companyJobResource.patch(id, payload)
+    
     const onSave = async () => {
       const [res] = await save()
       if (res) emit('save')

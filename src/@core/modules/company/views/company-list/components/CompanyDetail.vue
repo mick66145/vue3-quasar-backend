@@ -170,7 +170,7 @@ export default defineComponent({
   props: {
     mode: { type: String, requred: true },
   },
-  setup (props, { emit }) {
+  setup (props) {
     // data
     const { mode } = toRefs(props)
     const route = useRoute()
@@ -187,25 +187,17 @@ export default defineComponent({
     })
 
     // methods
-    const readFetch = async (id, payload) => {
-      return await companyResource.get(id, payload)
-    }
-    const createFetch = async (payload) => {
-      return await companyResource.post(payload)
-    }
-    const updateFetch = async (id, payload) => {
-      return await companyResource.patch(id, payload)
-    }
+    const readFetch = (id, payload) => companyResource.get(id, payload)
+    const createFetch = (payload) => companyResource.post(payload)
+    const updateFetch = (id, payload) => companyResource.patch(id, payload)
     const onSubmit = async () => {
       form.value.validate().then(async (success) => {
         if (success) {
           const payload = formData.value
           payload.setAddress()
           const urlObj = {
-            create: () => { return callCreateFetch({ ...payload }) },
-            edit: () => {
-              return callUpdateFetch(id, { ...payload })
-            },
+            create: () => callCreateFetch({ ...payload }),
+            edit: () => callUpdateFetch(id, { ...payload }),
           }
           const [res, error] = mode.value === 'create' ? await urlObj.create() : await urlObj.edit()
           if (res) goBack()

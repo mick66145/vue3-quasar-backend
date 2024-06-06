@@ -89,8 +89,8 @@ export default defineComponent({
     const countryCodeList = ref([])
 
     // mounted
-    onMounted(async () => {
-      await callReadListFetch()
+    onMounted(() => {
+      callReadListFetch()
     })
 
     // methods

@@ -71,9 +71,7 @@ export default defineComponent({
     })
 
     // methods
-    const trafficChartReportFetch = async () => {
-      return await browserHistoryResource.trafficChartReport()
-    }
+    const trafficChartReportFetch = () => browserHistoryResource.trafficChartReport()
 
     // use
     const { callReadListFetch: callTraffichartReportFetch } = useCRUD({

@@ -118,17 +118,11 @@ export default defineComponent({
     })
 
     // methods
-    const readFetch = async (id, payload) => {
-      return await roleResource.get(id, payload)
-    }
-    const createFetch = async (payload) => {
-      return await roleResource.post(payload)
-    }
-    const updateFetch = async (id, payload) => {
-      return await roleResource.patch(id, payload)
-    }
-    const fetchMenuPermissionData = async () => {
-      return await menuPermissionResource.list().then((res) => {
+    const readFetch = (id, payload) => roleResource.get(id, payload)
+    const createFetch = (payload) => roleResource.post(payload)
+    const updateFetch = (id, payload) => roleResource.patch(id, payload)
+    const fetchMenuPermissionData =  () => {
+      return menuPermissionResource.list().then((res) => {
         menuPermissionList.value = []
         menuPermissionList.value = res.list
       })
@@ -144,10 +138,8 @@ export default defineComponent({
             })
           })
           const urlObj = {
-            create: () => { return callCreateFetch({ ...payload }) },
-            edit: () => {
-              return callUpdateFetch(id, { ...payload })
-            },
+            create: () => callCreateFetch({ ...payload }),
+            edit: () => callUpdateFetch(id, { ...payload }),
           }
           const [res] = mode.value === 'create' ? await urlObj.create() : await urlObj.edit()
           if (res) goBack()
