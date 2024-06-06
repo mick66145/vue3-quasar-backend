@@ -120,8 +120,7 @@
 import { defineComponent, reactive } from 'vue-demi'
 import { useUser } from '@/stores/user'
 import useCRUD from '@/hooks/useCRUD'
-import useGoBack from '@/hooks/useGoBack'
-
+import useLogout from '@/hooks/useLogout'
 export default defineComponent({
   setup () {
     // data
@@ -134,23 +133,16 @@ export default defineComponent({
     })
 
     // methods
-    const updateFetch = async (payload) => {
-      return await store.profile(payload)
-    }
-    const changePasswordetch = async (payload) => {
-      return await store.changePassword(payload)
-    }
+    const updateFetch = (payload) => store.profile(payload)
+    const changePasswordetch = (payload) => store.changePassword(payload)
     const onSubmit = async () => {
       infoForm.value.validate().then(async (success) => {
         if (success) {
           const payload = { ...formData }
           const urlObj = {
-            edit: () => {
-              return callUpdateFetch({ ...payload })
-            },
+            edit: () => callUpdateFetch({ ...payload }),
           }
-          const [res] = await urlObj.edit()
-          if (res) goBack()
+          urlObj.edit()
         }
       })
     }
@@ -159,17 +151,15 @@ export default defineComponent({
         if (success) {
           const payload = { ...changePasswordformData }
           const urlObj = {
-            changePassword: () => {
-              return callChangePasswordFetch({ ...payload })
-            },
+            changePassword: () => callChangePasswordFetch({ ...payload }),
           }
-          await urlObj.changePassword()
+          const [res] = await urlObj.changePassword()
+          if(res) resetStore()
         }
       })
     }
 
     // use
-    const { goBack } = useGoBack()
     const { form: infoForm, callUpdateFetch } = useCRUD({
       updateFetch: updateFetch,
     })
@@ -177,6 +167,7 @@ export default defineComponent({
       createSuccess: '修改密碼成功',
       createFetch: changePasswordetch,
     })
+    const { resetStore } = useLogout()
 
     return {
       infoForm,

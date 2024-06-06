@@ -115,10 +115,7 @@ export default defineComponent({
     
     const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset, onRefresh } = useVxeServerDataTable({
       searchParames: filter,
-      sortParames: [{
-        field: 'created_at',
-        order: 'desc',
-      }],
+      sortParames: [{field: 'created_at',order: 'desc',}],
       sessionStorageKey: 'dashboardUserServerDataTable',
       callback: refreshFetch,
     })
@@ -133,7 +130,6 @@ export default defineComponent({
     return {
       dataTable,
       tableFields,
-      filter,
       data,
       total,
       search,

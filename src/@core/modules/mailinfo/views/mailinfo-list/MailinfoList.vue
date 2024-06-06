@@ -71,16 +71,8 @@ export default defineComponent({
       { title: '回覆者信箱', field: 'repeatmail', min_width: '130' },
     ])
     // methods
-    const fetchData = async (payload) => {
-      return await mailinfoResource.list(payload).then((res) => {
-        data.value = []
-        data.value = res.list
-        total.value = res.total
-      })
-    }
-    const refreshFetch = async () => {
-      await getDataList({ ...search })
-    }
+    const fetchData = (payload) => mailinfoResource.list(payload)
+    const refreshFetch = () => getDataList({ ...search })
 
     // use
     const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset } = useVxeServerDataTable({
@@ -99,7 +91,6 @@ export default defineComponent({
     return {
       dataTable,
       tableFields,
-      filter,
       data,
       total,
       search,

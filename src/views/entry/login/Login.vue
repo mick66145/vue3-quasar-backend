@@ -63,9 +63,7 @@ export default defineComponent({
     })
 
     // methods
-    const createFetch = async (payload) => {
-      return await store.login(payload)
-    }
+    const createFetch = (payload) => store.login(payload)
     const getOtherQuery = (query) => {
       return Object.keys(query).reduce((acc, cur) => {
         if (cur !== 'redirect') {
@@ -82,9 +80,9 @@ export default defineComponent({
         if (success) {
           const payload = { ...formData }
           const urlObj = {
-            login: () => { return callCreateFetch({ ...payload }) },
+            login: () => callCreateFetch({ ...payload }),
           }
-          const [res, error] = await urlObj.login()
+          const [res] = await urlObj.login()
           if (res) router.push({ path: redirect.value || '/', query: otherQuery.value })
         }
       })

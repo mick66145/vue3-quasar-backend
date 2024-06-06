@@ -41,11 +41,9 @@ export default defineComponent({
     const store = useUser()
 
     // methods
-    const createFetch = async (payload) => {
-      return await store.forgetPassword(payload)
-    }
+    const createFetch = (payload) => store.forgetPassword(payload)
     const onSave = async () => {
-      const [res, error] = await save()
+      const [res] = await save()
       if (res) emit('save')
     }
     const onHide = () => {

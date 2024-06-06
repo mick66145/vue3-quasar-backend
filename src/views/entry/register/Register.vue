@@ -53,17 +53,15 @@ export default defineComponent({
     })
 
     // methods
-    const createFetch = async (payload) => {
-      return await store.register(payload)
-    }
+    const createFetch = (payload) => store.register(payload)
     const handleRegister = () => {
       form.value.validate().then(async (success) => {
         if (success) {
           const payload = { ...formData }
           const urlObj = {
-            register: () => { return callCreateFetch({ ...payload }) },
+            register: () => callCreateFetch({ ...payload }),
           }
-          const [res, error] = await urlObj.register()
+          const [res] = await urlObj.register()
           if (res) router.push('/login')
         }
       })
