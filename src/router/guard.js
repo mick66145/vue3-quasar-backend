@@ -39,8 +39,7 @@ router.beforeEach(async (to, from, next) => {
         next()
       } else {
         try {
-          await store.whoami()
-          await store.permission()
+          await Promise.all([store.whoami(),store.permission()]);
           const accessRoutes = await storePermission.generateRoutes({ roles: [], permissions: store.permissionList })
           addRoutes(accessRoutes, {})
           next({ ...to, replace: true })
