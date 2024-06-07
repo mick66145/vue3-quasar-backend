@@ -1,18 +1,29 @@
-import Resource from '@/@core/api/restful/resource'
+import useResource from '@/hooks/useResource'
 import { User } from '@/@core/modules/user/models'
+import request from '@/@core/utils/request'
 
-class UserResource extends Resource {
-  constructor () {
-    super('user')
-    this.setModel(User)
-  }
-  
-  async resetPassword (id) {
-    return await request({
-      url: `/${this.uri}/${id}/reset_password`,
+
+export const useUserResource = ({ 
+  uri = 'user'
+}) => {
+
+  const resetPassword = (id) => {
+    return request({
+      url: `/${uri}/${id}/reset_password`,
       method: 'post',
     }).then(res => res.data)
   }
-}
 
-export default UserResource
+  const { list , get , post , patch , put , destroy , selectAll } = useResource({uri , factory:User})
+
+  return {
+    list,
+    get,
+    post,
+    patch,
+    put,
+    destroy,
+    selectAll,
+    resetPassword,
+  }
+}

@@ -1,9 +1,9 @@
-import { ref } from 'vue-demi'
 import request from '@/@core/utils/request'
 
-export const useResource = ({uri})=> {
-  
-  const factory = ref(null)
+export default function useResource({
+  uri , 
+  factory = () => {}
+}) {
 
   const list = ({query})=> {
     return request({
@@ -13,7 +13,7 @@ export const useResource = ({uri})=> {
     }).then(res => res.data)
       .then(res => {
         res.data.list = [...res.data.list].map((element) => {
-          const model = factory.value(element)
+          const model = factory(element)
           return model
         })
         const { list, meta } = res.data
@@ -40,48 +40,48 @@ export const useResource = ({uri})=> {
       params: query,
     }).then(res => res.data)
       .then(res => {
-        const model = factory.value({...res.data,})
+        const model = factory({...res.data,})
         return model
       })
   }
 
-  const post = ({params})=> {
+  const post = ({payload})=> {
     return request({
       url: `/${uri}`,
       method: 'post',
-      data: params,
+      data: payload,
     }).then(res => res.data)
       .then(res => res.data)
   }
 
-  const patch = ({id, params}) => {
-    params = { ...params, id: +id }
+  const patch = ({id, payload}) => {
+    payload = { ...payload, id: +id }
     return request({
       url: `/${uri}/${id}`,
       method: 'patch',
-      data: params,
+      data: payload,
     }).then(res => res.data)
       .then(res => res.data)
   }
 
-  const put =  ({id, params}) => {
+  const put =  ({id, payload}) => {
     const url = !id ? `/${uri}` : `/${uri}/${id}`
-    id && ( params = { ...params, id: +id })
+    id && ( payload = { ...payload, id: +id })
     return request({
       url: url,
       method: 'put',
-      data: params,
+      data: payload,
     })
   }
 
-  // const delete = ({id, query})=> {
-  //   query = { id: +id }
-  //   return request({
-  //     url: `/${uri}/${id}`,
-  //     method: 'delete',
-  //     params: query,
-  //   }).then(res => res.data)
-  // }
+  const destroy = ({id, query})=> {
+    query = { id: +id }
+    return request({
+      url: `/${uri}/${id}`,
+      method: 'delete',
+      params: query,
+    }).then(res => res.data)
+  }
 
   const selectAll = ({query}) => {
     return request({
@@ -96,17 +96,13 @@ export const useResource = ({uri})=> {
       )
   }
 
-  const setFactory = (model) => {
-    factory.value = model
-  }
-
   return {
     list,
     get,
     post,
     patch,
     put,
+    destroy,
     selectAll,
-    setFactory,
   }
 }
