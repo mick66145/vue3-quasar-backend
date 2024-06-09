@@ -32,7 +32,7 @@
             :field="field"
             :title="title"
             sortable
-            :min-width="$q.screen.lt.sm ? min_width : 'auto'"
+            :min-width="min_width"
           />
           <vxe-column title="操作" fixed="right" width="115">
             <template #default="{ row }">

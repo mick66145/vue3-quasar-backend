@@ -14,7 +14,7 @@ import { useVModel } from '@vueuse/core'
 import { CompanyResource } from '@/@core/modules/company/api'
 import useCRUD from '@/hooks/useCRUD'
 
-const companyResource = new CompanyResource()
+const companyResource = CompanyResource({})
 
 export default defineComponent({
   props: {
@@ -35,8 +35,8 @@ export default defineComponent({
     })
 
     // methods
-    const fetchData = async (payload) => {
-      return await companyResource.list(payload).then((res) => {
+    const fetchData = async (query) => {
+      return await companyResource.list({query}).then((res) => {
         companyList.value = []
         companyList.value = res.list
       })
