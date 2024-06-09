@@ -34,8 +34,8 @@ export default defineComponent({
 
     // methods
     const fetchData = () => {
-      const payload = { city_id: cityId.value }
-      return  areaResource.list(payload).then((res) => {
+      const query = { city_id: cityId.value }
+      return  areaResource.list({query}).then((res) => {
         areaList.value = []
         areaList.value = res.list
       })

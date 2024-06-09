@@ -148,7 +148,7 @@ export default defineComponent({
     }
 
     const fetchCompanyJobData = (query) => {
-      return companyJobResource.list(query).then((res) => {
+      return companyJobResource.list({query}).then((res) => {
         companyJobList.value = []
         companyJobList.value = res.list
       })

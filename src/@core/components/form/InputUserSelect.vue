@@ -32,8 +32,8 @@ export default defineComponent({
 
     // methods
     const fetchData = () => {
-      const payload = {orderby: "created_at:desc"} 
-      return userResource.list(payload).then((res) => {
+      const query = {orderby: "created_at:desc"} 
+      return userResource.list({query}).then((res) => {
         userList.value = []
         userList.value = res.list
       })

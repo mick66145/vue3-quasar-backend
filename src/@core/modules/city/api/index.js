@@ -1,2 +1,2 @@
 
-export { default as CityResource } from './restful/city'
+export { CityResource } from './restful/city'
