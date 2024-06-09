@@ -17,7 +17,7 @@ class Role extends Base {
       this.created_at = convertDateTime(obj?.created_at)
       this.name = obj?.name
       this.permissions = [...obj?.permissions].map(element => {
-        const permissionObj = new BasePermission(element)
+        const permissionObj = BasePermission(element)
         return permissionObj
       })
     }

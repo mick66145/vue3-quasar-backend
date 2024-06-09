@@ -90,7 +90,7 @@ import useGoBack from '@/hooks/useGoBack'
 import _ from 'lodash-es'
 
 const roleResource = new RoleResource()
-const menuPermissionResource = new MenuPermissionResource()
+const menuPermissionResource = MenuPermissionResource({})
 
 export default defineComponent({
   props: {
@@ -122,7 +122,7 @@ export default defineComponent({
     const createFetch = (payload) => roleResource.post(payload)
     const updateFetch = (id, payload) => roleResource.patch(id, payload)
     const fetchMenuPermissionData =  () => {
-      return menuPermissionResource.list().then((res) => {
+      return menuPermissionResource.list({}).then((res) => {
         menuPermissionList.value = []
         menuPermissionList.value = res.list
       })

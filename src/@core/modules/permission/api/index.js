@@ -1,2 +1,2 @@
 
-export { default as MenuPermissionResource } from './restful/menu-permission'
+export { MenuPermissionResource } from './restful/menu-permission'
