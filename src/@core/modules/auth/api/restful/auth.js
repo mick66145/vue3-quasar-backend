@@ -1,6 +1,6 @@
 import request from '@/@core/utils/request'
 
-export const useAuthResource = ({ 
+export const AuthResource = ({ 
   uri = 'auth'
 }) => {
 

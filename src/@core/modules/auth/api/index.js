@@ -1,1 +1,1 @@
-export { useAuthResource } from './restful/auth'
+export { AuthResource } from './restful/auth'

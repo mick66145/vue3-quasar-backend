@@ -1,4 +1,4 @@
-import Base from '@/@core/models/modules/Base2'
+import Base from '@/@core/models/modules/Base'
 import { BasePermission } from '@/@core/modules/permission/models'
 import { convertDateTime } from '@/utils/data-convert'
 

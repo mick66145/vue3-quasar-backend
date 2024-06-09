@@ -1,22 +1,23 @@
 import Base from '@/@core/models/modules/Base'
 
-class BaseAddress extends Base {
-
-    //api
-    city = ''
-    area = ''
-    post_code = ''
-    address = ''
-    
-    constructor(obj) {
-        super();
-        if (obj) {
-            //api
-            this.city = obj?.city;
-            this.area = obj?.area;
-            this.post_code = obj?.post_code;
-            this.address = obj?.address;
-        }
-    }
+const BaseAddress = {
+    ...Base,
+    city: "",
+    area: "",
+    post_code: "",
+    address: "",
 }
-export default BaseAddress;
+
+const BaseAddressFactory = (item = null) => {
+    const factory = (item) => {
+        return {
+            city: item?.city || "",
+            area: item?.area || "",
+            post_code: item?.post_code || "",
+            address: item?.address || "",
+        };
+    };
+    return factory(item || BaseAddress);
+}
+
+export default BaseAddressFactory
