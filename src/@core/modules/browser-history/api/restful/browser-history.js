@@ -1,14 +1,12 @@
-import Resource from '@/@core/api/restful/resource'
 import request from '@/@core/utils/request'
 
-class BrowserHistoryResource extends Resource {
-  constructor () {
-    super('browser_history')
-  }
+export const BrowserHistoryResource = ({
+  uri = 'browser_history'
+}) => {
 
-  async trafficOverview (query) {
-    return await request({
-      url: `/${this.uri}/action/traffic_overview`,
+  const trafficOverview = ({query}) => {
+    return request({
+      url: `/${uri}/action/traffic_overview`,
       method: 'get',
       params: query,
     }).then(res => res.data)
@@ -18,9 +16,9 @@ class BrowserHistoryResource extends Resource {
       })
   }
 
-  async browserChartReport (query) {
-    return await request({
-      url: `/${this.uri}/action/browser_chart_report`,
+  const browserChartReport = ({query}) => {
+    return  request({
+      url: `/${uri}/action/browser_chart_report`,
       method: 'get',
       params: query,
     }).then(res => res.data)
@@ -30,9 +28,9 @@ class BrowserHistoryResource extends Resource {
       })
   }
 
-  async deviceTypeChartReport (query) {
-    return await request({
-      url: `/${this.uri}/action/device_type_chart_report`,
+  const deviceTypeChartReport = ({query}) => {
+    return  request({
+      url: `/${uri}/action/device_type_chart_report`,
       method: 'get',
       params: query,
     }).then(res => res.data)
@@ -42,9 +40,9 @@ class BrowserHistoryResource extends Resource {
       })
   }
 
-  async trafficChartReport (query) {
-    return await request({
-      url: `/${this.uri}/action/traffic_chart_report`,
+  const trafficChartReport = ({query}) => {
+    return  request({
+      url: `/${uri}/action/traffic_chart_report`,
       method: 'get',
       params: query,
     }).then(res => res.data)
@@ -52,7 +50,15 @@ class BrowserHistoryResource extends Resource {
         const { list } = res.data
         return { list: list }
       })
+  }
+
+  return {
+    trafficOverview,
+    browserChartReport,
+    deviceTypeChartReport,
+    trafficChartReport,
   }
 }
 
-export default BrowserHistoryResource
+
+

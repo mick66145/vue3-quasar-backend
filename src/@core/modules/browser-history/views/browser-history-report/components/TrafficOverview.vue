@@ -21,7 +21,7 @@ import { defineComponent, ref, onMounted } from 'vue-demi'
 import { BrowserHistoryResource } from '@/@core/modules/browser-history/api'
 import useCRUD from '@/hooks/useCRUD'
 
-const browserHistoryResource = new BrowserHistoryResource()
+const browserHistoryResource = BrowserHistoryResource({})
 
 export default defineComponent({
   setup () {
@@ -35,7 +35,7 @@ export default defineComponent({
     })
 
     // methods
-    const trafficOverviewFetch = () => browserHistoryResource.trafficOverview()
+    const trafficOverviewFetch = () => browserHistoryResource.trafficOverview({})
 
     // use
     const { callReadListFetch: callTrafficOverviewFetch } = useCRUD({
