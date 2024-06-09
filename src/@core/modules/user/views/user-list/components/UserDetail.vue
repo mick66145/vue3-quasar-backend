@@ -109,7 +109,7 @@ import useGoBack from '@/hooks/useGoBack'
 
 const userResource = useUserResource({})
 const roleResource = new RoleResource()
-const companyJobResource = new CompanyJobResource()
+const companyJobResource = CompanyJobResource({})
 
 export default defineComponent({
   props: {
@@ -136,19 +136,19 @@ export default defineComponent({
     })
 
     // methods
-    const readFetch =  (id, payload) => userResource.get({id, payload})
+    const readFetch =  (id, query) => userResource.get({id, query})
     const createFetch = (payload) => userResource.post({payload})
     const updateFetch =  (id, payload) => userResource.patch({id, payload})
     
-    const fetchRoleData =  (payload) => {
-      return roleResource.list(payload).then((res) => {
+    const fetchRoleData =  (query) => {
+      return roleResource.list(query).then((res) => {
         roleList.value = []
         roleList.value = res.list
       })
     }
 
-    const fetchCompanyJobData = (payload) => {
-      return companyJobResource.list(payload).then((res) => {
+    const fetchCompanyJobData = (query) => {
+      return companyJobResource.list(query).then((res) => {
         companyJobList.value = []
         companyJobList.value = res.list
       })

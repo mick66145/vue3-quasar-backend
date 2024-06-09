@@ -1,11 +1,18 @@
-import Resource from '@/@core/api/restful/resource'
+import useResource from '@/hooks/useResource'
 import { CompanyJob } from '@/@core/modules/company-job/models'
 
-class CompanyJobResource extends Resource {
-  constructor () {
-    super('company_job')
-    this.setModel(CompanyJob)
+export const CompanyJobResource = ({ 
+  uri = 'company_job'
+}) => {
+  const { list , get , post , patch , put , destroy , selectAll } = useResource({uri , factory:CompanyJob})
+
+  return {
+    list,
+    get,
+    post,
+    patch,
+    put,
+    destroy,
+    selectAll
   }
 }
-
-export default CompanyJobResource
