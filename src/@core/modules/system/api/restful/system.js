@@ -1,15 +1,13 @@
-import Resource from '@/@core/api/restful/resource'
-import request from '@/@core/utils/request'
 import { SystemRecordLog } from '@/@core/modules/system/models'
+import request from '@/@core/utils/request'
 
-class SystemResource extends Resource {
-  constructor () {
-    super('system')
-  }
+export const SystemResource = ({
+  uri = 'system'
+}) => {
 
-  async recordLoglist (query) {
-    return await request({
-      url: `/${this.uri}/record_log`,
+  const recordLoglist = (query) => {
+    return request({
+      url: `/${uri}/record_log`,
       method: 'get',
       params: query,
     }).then(res => res.data)
@@ -33,14 +31,19 @@ class SystemResource extends Resource {
       )
   }
 
-  async viewCount (query) {
-    return await request({
-      url: `/${this.uri}/viewcount`,
+  const viewCount = ({ query }) => {
+    return request({
+      url: `/${uri}/viewcount`,
       method: 'get',
       params: query,
     }).then(res => res.data)
       .then(res => res.data)
   }
+
+  return {
+    recordLoglist,
+    viewCount
+  }
 }
 
-export default SystemResource
+

@@ -4,16 +4,11 @@ import { CountryCode } from '@/@core/modules/country-code/models'
 export const CountryCodeResource = ({ 
   uri = 'country_code'
 }) => {
-  const { list , get , post , patch , put , destroy , selectAll } = useResource({uri , factory:CountryCode})
+  const { list , get  } = useResource({uri , factory:CountryCode})
 
   return {
     list,
     get,
-    post,
-    patch,
-    put,
-    destroy,
-    selectAll
   }
 }
 
