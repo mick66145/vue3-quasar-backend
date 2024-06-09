@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { getToken, setToken, removeToken } from '@/@core/utils/auth'
-import { useAuthResource } from '@/@core/modules/auth/api'
+import { AuthResource } from '@/@core/modules/auth/api'
 import useLogout from '@/hooks/useLogout'
 
 export const useUser = defineStore({
@@ -9,7 +9,7 @@ export const useUser = defineStore({
     token: getToken(),
     info: '',
     permissionList: [],
-    authResource : useAuthResource({})
+    authResource : AuthResource({})
   }),
   actions: {
     async login (payload) {
