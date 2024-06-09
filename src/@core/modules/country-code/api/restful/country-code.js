@@ -1,11 +1,20 @@
-import Resource from '@/@core/api/restful/resource'
+import useResource from '@/hooks/useResource'
 import { CountryCode } from '@/@core/modules/country-code/models'
 
-class CountryCodeResource extends Resource {
-  constructor () {
-    super('country_code')
-    this.setModel(CountryCode)
+export const CountryCodeResource = ({ 
+  uri = 'country_code'
+}) => {
+  const { list , get , post , patch , put , destroy , selectAll } = useResource({uri , factory:CountryCode})
+
+  return {
+    list,
+    get,
+    post,
+    patch,
+    put,
+    destroy,
+    selectAll
   }
 }
 
-export default CountryCodeResource
+
