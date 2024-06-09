@@ -1,5 +1,5 @@
 import useResource from '@/hooks/useResource'
-import { PlatformAttribute } from '@/@core/modules/platform-attribute/models'
+import { PlatformAttribute } from '@core/modules/platform-attribute/models'
 
 export const PlatformAttributeResource = ({ 
   uri = 'platform_attribute'

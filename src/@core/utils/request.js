@@ -3,7 +3,7 @@ import Configuration from '@/configuration'
 import axios from 'axios'
 import qs from 'qs'
 import { useUser } from '@/stores/user'
-import { getToken } from '@/@core/utils/auth'
+import { getToken } from '@core/utils/auth'
 import useNotify from '@/hooks/useNotify'
 import useLogout from '@/hooks/useLogout'
 

@@ -1,5 +1,5 @@
 import useResource from '@/hooks/useResource'
-import { MenuPermission } from '@/@core/modules/permission/models'
+import { MenuPermission } from '@core/modules/permission/models'
 
 export const MenuPermissionResource = ({ 
   uri = 'menu_permission'

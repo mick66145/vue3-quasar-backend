@@ -13,7 +13,7 @@ const mailLogRouter = {
   children: [
     {
       path: '',
-      component: () => import('@/@core/modules/mail-log/views/mail-log-list/MailLogList.vue'),
+      component: () => import('@core/modules/mail-log/views/mail-log-list/MailLogList.vue'),
       name: 'MailLogList',
       meta: { title: 'mail-log.title', icon: 'fas fa-genderless', permissions: ['view mail_log'] },
     },

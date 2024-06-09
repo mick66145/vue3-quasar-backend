@@ -49,7 +49,7 @@
 <script>
 import MailLogListSearchBlock from './components/MailLogListSearchBlock.vue'
 import MailLogDialog from './components/MailLogDialog.vue'
-import { MailLogResource } from '@/@core/modules/mail-log/api'
+import { MailLogResource } from '@core/modules/mail-log/api'
 import { defineComponent, ref, reactive } from 'vue-demi'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'

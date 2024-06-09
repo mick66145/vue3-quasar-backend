@@ -1,5 +1,5 @@
 import useResource from '@/hooks/useResource'
-import { City } from '@/@core/modules/city/models'
+import { City } from '@core/modules/city/models'
 
 export const CityResource = ({ 
   uri = 'city'

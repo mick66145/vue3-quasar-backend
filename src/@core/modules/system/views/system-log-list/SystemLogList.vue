@@ -37,7 +37,7 @@
 <script>
 import SystemLogListSearchBlock from './components/SystemLogListSearchBlock.vue'
 import { defineComponent, ref, reactive } from 'vue-demi'
-import { SystemResource } from '@/@core/modules/system/api'
+import { SystemResource } from '@core/modules/system/api'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 

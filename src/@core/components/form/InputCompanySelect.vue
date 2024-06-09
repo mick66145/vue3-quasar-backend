@@ -11,7 +11,7 @@
 <script>
 import { defineComponent, ref, onMounted } from 'vue-demi'
 import { useVModel } from '@vueuse/core'
-import { CompanyResource } from '@/@core/modules/company/api'
+import { CompanyResource } from '@core/modules/company/api'
 import useCRUD from '@/hooks/useCRUD'
 
 const companyResource = CompanyResource({})

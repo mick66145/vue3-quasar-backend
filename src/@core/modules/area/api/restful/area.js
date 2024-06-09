@@ -1,5 +1,5 @@
 import useResource from '@/hooks/useResource'
-import { Area } from '@/@core/modules/area/models'
+import { Area } from '@core/modules/area/models'
 
 export const AreaResource = ({ 
   uri = 'area'

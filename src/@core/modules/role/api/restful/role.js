@@ -1,5 +1,5 @@
 import useResource from '@/hooks/useResource'
-import { Role } from '@/@core/modules/role/models'
+import { Role } from '@core/modules/role/models'
 
 export const RoleResource = ({ 
   uri = 'role'

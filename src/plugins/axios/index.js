@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getToken } from '@/@core/utils/auth'
+import { getToken } from '@core/utils/auth'
 import configuration from '@/configuration'
 
 const $axios = axios.create({

@@ -1,5 +1,5 @@
 import useResource from '@/hooks/useResource'
-import { CompanyJob } from '@/@core/modules/company-job/models'
+import { CompanyJob } from '@core/modules/company-job/models'
 
 export const CompanyJobResource = ({ 
   uri = 'company_job'

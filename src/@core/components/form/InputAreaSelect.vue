@@ -9,7 +9,7 @@
 <script>
 import { defineComponent, ref, onMounted, toRefs, watch } from 'vue-demi'
 import { useVModel } from '@vueuse/core'
-import { AreaResource } from '@/@core/modules/area/api'
+import { AreaResource } from '@core/modules/area/api'
 import useCRUD from '@/hooks/useCRUD'
 
 const areaResource = AreaResource({})

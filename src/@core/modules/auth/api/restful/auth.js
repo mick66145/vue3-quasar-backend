@@ -1,4 +1,4 @@
-import request from '@/@core/utils/request'
+import request from '@core/utils/request'
 
 export const AuthResource = ({ 
   uri = 'auth'

@@ -13,7 +13,7 @@ const systemLogRouter = {
   children: [
     {
       path: '',
-      component: () => import('@/@core/modules/system/views/system-log-list/SystemLogList.vue'),
+      component: () => import('@core/modules/system/views/system-log-list/SystemLogList.vue'),
       name: 'SystemLogList',
       meta: { title: 'operate-log.title', icon: 'fas fa-genderless', permissions: ['view operate_log'] },
     },

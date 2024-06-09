@@ -81,9 +81,9 @@
 <script>
 import { defineComponent, ref, toRefs, onMounted } from 'vue-demi'
 import { useRoute } from 'vue-router'
-import { MenuPermissionResource } from '@/@core/modules/permission/api'
-import { RoleResource } from '@/@core/modules/role/api'
-import { Role } from '@/@core/modules/role/models'
+import { MenuPermissionResource } from '@core/modules/permission/api'
+import { RoleResource } from '@core/modules/role/api'
+import { Role } from '@core/modules/role/models'
 import { breadthFirstSearch } from '@/utils/tree'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'

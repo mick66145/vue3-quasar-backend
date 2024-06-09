@@ -8,7 +8,7 @@
 
 <script>
 import { defineComponent, ref, onMounted } from 'vue-demi'
-import { useUserResource } from '@/@core/modules/user/api'
+import { useUserResource } from '@core/modules/user/api'
 import { useVModel } from '@vueuse/core'
 import useCRUD from '@/hooks/useCRUD'
 

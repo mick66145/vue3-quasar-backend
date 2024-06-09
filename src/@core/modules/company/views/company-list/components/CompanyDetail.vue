@@ -159,8 +159,8 @@
 <script>
 import { defineComponent, ref, onMounted, toRefs } from 'vue-demi'
 import { useRoute } from 'vue-router'
-import { CompanyResource } from '@/@core/modules/company/api'
-import { Company } from '@/@core/modules/company/models'
+import { CompanyResource } from '@core/modules/company/api'
+import { Company } from '@core/modules/company/models'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 

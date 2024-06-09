@@ -1,6 +1,6 @@
 import Configuration from '@/configuration'
 import useResource from '@/hooks/useResource'
-import request from '@/@core/utils/request'
+import request from '@core/utils/request'
 
 const fileBaseUrl = `${Configuration('fileServerHost')}`
 

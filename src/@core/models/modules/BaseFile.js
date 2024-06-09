@@ -1,4 +1,4 @@
-import Base from '@/@core/models/modules/Base'
+import Base from '@core/models/modules/Base'
 
 const BaseFile = {
     ...Base,

@@ -18,8 +18,8 @@
 
 <script>
 import { defineComponent } from 'vue-demi'
-import { CompanyJobResource } from '@/@core/modules/company-job/api'
-import { CompanyJob } from '@/@core/modules/company-job/models'
+import { CompanyJobResource } from '@core/modules/company-job/api'
+import { CompanyJob } from '@core/modules/company-job/models'
 import useDialog from '@/hooks/useDialog'
 
 const companyJobResource = CompanyJobResource({})

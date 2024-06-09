@@ -12,8 +12,8 @@
 
 <script>
 import { defineComponent } from 'vue-demi'
-import { MailLogResource } from '@/@core/modules/mail-log/api'
-import { MailLog } from '@/@core/modules/mail-log/models'
+import { MailLogResource } from '@core/modules/mail-log/api'
+import { MailLog } from '@core/modules/mail-log/models'
 import useDialog from '@/hooks/useDialog'
 
 const mailLogResource = MailLogResource({})

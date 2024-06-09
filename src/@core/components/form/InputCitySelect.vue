@@ -9,7 +9,7 @@
 <script>
 import { defineComponent, ref, onMounted } from 'vue-demi'
 import { useVModel } from '@vueuse/core'
-import { CityResource } from '@/@core/modules/city/api'
+import { CityResource } from '@core/modules/city/api'
 import useCRUD from '@/hooks/useCRUD'
 
 const cityResource = CityResource({})

@@ -48,7 +48,7 @@
 <script>
 import MailinfoListSearchBlock from './components/MailinfoListSearchBlock.vue'
 import { defineComponent, ref, reactive } from 'vue-demi'
-import { MailinfoResource } from '@/@core/modules/mailinfo/api'
+import { MailinfoResource } from '@core/modules/mailinfo/api'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 

@@ -1,5 +1,5 @@
 import useResource from '@/hooks/useResource'
-import { CountryCode } from '@/@core/modules/country-code/models'
+import { CountryCode } from '@core/modules/country-code/models'
 
 export const CountryCodeResource = ({ 
   uri = 'country_code'

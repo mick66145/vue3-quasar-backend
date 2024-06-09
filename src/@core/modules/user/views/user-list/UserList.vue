@@ -67,7 +67,7 @@
 <script>
 import UserListSearchBlock from './components/UserListSearchBlock.vue'
 import { defineComponent, ref, reactive } from 'vue-demi'
-import { useUserResource } from '@/@core/modules/user/api'
+import { useUserResource } from '@core/modules/user/api'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 import useMessageDialog from '@/hooks/useMessageDialog'

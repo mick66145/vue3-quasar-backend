@@ -1,5 +1,5 @@
-import { SystemRecordLog } from '@/@core/modules/system/models'
-import request from '@/@core/utils/request'
+import { SystemRecordLog } from '@core/modules/system/models'
+import request from '@core/utils/request'
 
 export const SystemResource = ({
   uri = 'system'

@@ -68,7 +68,7 @@
 <script>
 import { defineComponent, ref, onMounted } from 'vue-demi'
 import { useVModel } from '@vueuse/core'
-import { CountryCodeResource } from '@/@core/modules/country-code/api'
+import { CountryCodeResource } from '@core/modules/country-code/api'
 import useCRUD from '@/hooks/useCRUD'
 
 const countryCodeResource = CountryCodeResource({})

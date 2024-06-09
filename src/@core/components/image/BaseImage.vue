@@ -27,7 +27,7 @@
 
 <script>
 import { defineComponent, ref } from 'vue-demi'
-import { getToken } from '@/@core/utils/auth'
+import { getToken } from '@core/utils/auth'
 import { fetchBlobData, fetchBlobDataAsDataUrl } from '@/utils/blob'
 import { asyncComputed } from '@vueuse/core'
 export default defineComponent({
@@ -89,4 +89,4 @@ export default defineComponent({
 </script>
 
 <style lang="postcss" scoped></style>
-@/@core/utils/auth
+@core/utils/auth

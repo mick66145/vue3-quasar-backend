@@ -14,20 +14,20 @@ const roleRouter = {
   children: [
     {
       path: '',
-      component: () => import('@/@core/modules/role/views/role-list/RoleList.vue'),
+      component: () => import('@core/modules/role/views/role-list/RoleList.vue'),
       name: 'RoleList',
       meta: { title: 'role.title', icon: 'fas fa-genderless', permissions: ['view role'] },
     },
     {
       path: 'create',
-      component: () => import('@/@core/modules/role/views/role-list/RoleCreate.vue'),
+      component: () => import('@core/modules/role/views/role-list/RoleCreate.vue'),
       name: 'RoleCreate',
       meta: { title: '權限詳情', permissions: ['create role'] },
       hidden: true,
     },
     {
       path: 'edit/:id(\\d+)',
-      component: () => import('@/@core/modules/role/views/role-list/RoleEdit.vue'),
+      component: () => import('@core/modules/role/views/role-list/RoleEdit.vue'),
       name: 'RoleEdit',
       meta: { title: '權限詳情', permissions: ['update role'] },
       hidden: true,

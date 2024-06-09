@@ -100,8 +100,8 @@
 <script>
 import { defineComponent, ref, toRefs, onMounted } from 'vue-demi'
 import { useRoute } from 'vue-router'
-import { MailinfoResource } from '@/@core/modules/mailinfo/api'
-import { Mailinfo } from '@/@core/modules/mailinfo/models'
+import { MailinfoResource } from '@core/modules/mailinfo/api'
+import { Mailinfo } from '@core/modules/mailinfo/models'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 import useDeltaConvert from '@/hooks/useDeltaConvert'

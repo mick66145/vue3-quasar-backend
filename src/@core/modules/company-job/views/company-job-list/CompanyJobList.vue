@@ -60,7 +60,7 @@
 <script>
 import CompanyJobListSearchBlock from './components/CompanyJobListSearchBlock.vue'
 import CompanyJobDialog from './components/CompanyJobDialog.vue'
-import { CompanyJobResource } from '@/@core/modules/company-job/api'
+import { CompanyJobResource } from '@core/modules/company-job/api'
 import { defineComponent, ref, reactive } from 'vue-demi'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'

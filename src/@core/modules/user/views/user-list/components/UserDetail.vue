@@ -100,10 +100,10 @@
 
 import { defineComponent, ref, toRefs, onMounted } from 'vue-demi'
 import { useRoute } from 'vue-router'
-import { useUserResource } from '@/@core/modules/user/api'
-import { CompanyJobResource } from '@/@core/modules/company-job/api'
-import { RoleResource } from '@/@core/modules/role/api'
-import { User } from '@/@core/modules/user/models'
+import { useUserResource } from '@core/modules/user/api'
+import { CompanyJobResource } from '@core/modules/company-job/api'
+import { RoleResource } from '@core/modules/role/api'
+import { User } from '@core/modules/user/models'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 

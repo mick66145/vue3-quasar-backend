@@ -1,5 +1,5 @@
 import useResource from '@/hooks/useResource'
-import { Mailinfo } from '@/@core/modules/mailinfo/models'
+import { Mailinfo } from '@core/modules/mailinfo/models'
 
 export const MailinfoResource = ({ 
   uri = 'mailinfo'

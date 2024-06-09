@@ -59,7 +59,7 @@
 <script>
 import RoleListSearchBlock from './components/RoleListSearchBlock.vue'
 import { defineComponent, ref, reactive } from 'vue-demi'
-import { RoleResource } from '@/@core/modules/role/api'
+import { RoleResource } from '@core/modules/role/api'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 import useMessageDialog from '@/hooks/useMessageDialog'

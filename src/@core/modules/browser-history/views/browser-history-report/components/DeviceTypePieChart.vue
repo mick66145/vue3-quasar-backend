@@ -11,7 +11,7 @@
 
 <script>
 import { defineComponent, ref, onMounted } from 'vue-demi'
-import { BrowserHistoryResource } from '@/@core/modules/browser-history/api'
+import { BrowserHistoryResource } from '@core/modules/browser-history/api'
 import useCRUD from '@/hooks/useCRUD'
 import useCharts from '@/hooks/useChart'
 

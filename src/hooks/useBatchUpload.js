@@ -1,5 +1,5 @@
 
-import { FileResource } from '@/@core/modules/file/api'
+import { FileResource } from '@core/modules/file/api'
 import { useApp } from '@/stores/app'
 import reduce from 'lodash-es/reduce'
 

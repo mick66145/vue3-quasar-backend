@@ -1,5 +1,5 @@
-import Base from '@/@core/models/modules/Base'
-import { BasePermission } from '@/@core/modules/permission/models'
+import Base from '@core/models/modules/Base'
+import { BasePermission } from '@core/modules/permission/models'
 import { convertDateTime } from '@/utils/data-convert'
 
 const Role = {

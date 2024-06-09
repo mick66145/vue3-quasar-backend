@@ -1,6 +1,6 @@
 import useResource from '@/hooks/useResource'
-import { User } from '@/@core/modules/user/models'
-import request from '@/@core/utils/request'
+import { User } from '@core/modules/user/models'
+import request from '@core/utils/request'
 
 
 export const useUserResource = ({ 
