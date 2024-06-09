@@ -1,6 +1,17 @@
-import Base from '@/@core/models/modules/Base'
+import Base from '@/@core/models/modules/Base2'
 
-class PlatformAttribute extends Base {
+const PlatformAttribute = {
+  ...Base,
 }
 
-export default PlatformAttribute
+const PlatformAttributeFactory = (item = null) => {
+  const factory = (item) => {
+    return {
+
+    };
+  };
+
+  return factory(item||PlatformAttribute);
+}
+
+export default PlatformAttributeFactory

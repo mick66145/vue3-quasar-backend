@@ -1,11 +1,19 @@
-import Resource from '@/@core/api/restful/resource'
+import useResource from '@/hooks/useResource'
 import { PlatformAttribute } from '@/@core/modules/platform-attribute/models'
 
-class PlatformAttributeResource extends Resource {
-  constructor () {
-    super('platform_attribute')
-    this.setModel(PlatformAttribute)
+export const PlatformAttributeResource = ({ 
+  uri = 'platform_attribute'
+}) => {
+  const { list , get , post , patch , put , destroy } = useResource({uri , factory:PlatformAttribute})
+
+  return {
+    list,
+    get,
+    post,
+    patch,
+    put,
+    destroy
   }
 }
 
-export default PlatformAttributeResource
+

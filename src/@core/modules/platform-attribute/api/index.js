@@ -1,2 +1,2 @@
 
-export { default as PlatformAttributeResource } from './restful/platform-attribute'
+export { PlatformAttributeResource } from './restful/platform-attribute'
