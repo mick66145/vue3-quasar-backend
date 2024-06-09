@@ -1,17 +1,20 @@
-import Base from '@/@core/models/modules/Base'
+import Base from '@/@core/models/modules/Base2'
 
-class City extends Base {
-
-  //api欄位
-  id = "";
-  name = "";
-
-  constructor(obj) {
-    super();
-    if(obj){
-      this.id = obj?.id
-      this.name = obj?.name
-    }
-  }
+const City = {
+  ...Base,
+  id : "",
+  name : "",
 }
-export default City
+
+const CityFactory = (item = null) => {
+  const factory = (item) => {
+    return {
+      id: item?.id,
+      name: item?.name,
+    };
+  };
+
+  return factory(item||City);
+}
+
+export default CityFactory

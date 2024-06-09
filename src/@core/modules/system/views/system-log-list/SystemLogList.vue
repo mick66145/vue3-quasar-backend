@@ -41,7 +41,7 @@ import { SystemResource } from '@/@core/modules/system/api'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 
-const systemResource = new SystemResource()
+const systemResource = SystemResource({})
 
 export default defineComponent({
   components: {
@@ -61,7 +61,7 @@ export default defineComponent({
     ])
 
     // methods
-    const fetchData = (payload) => systemResource.recordLoglist(payload)
+    const fetchData = (query) => systemResource.recordLoglist({query})
     const refreshFetch = () => getDataList({ ...search })
 
     const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset } = useVxeServerDataTable({

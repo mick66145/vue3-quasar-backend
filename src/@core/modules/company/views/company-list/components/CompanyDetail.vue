@@ -164,7 +164,7 @@ import { Company } from '@/@core/modules/company/models'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 
-const companyResource = new CompanyResource()
+const companyResource = CompanyResource({})
 
 export default defineComponent({
   props: {
@@ -174,7 +174,7 @@ export default defineComponent({
     // data
     const { mode } = toRefs(props)
     const route = useRoute()
-    const formData = ref(new Company())
+    const formData = ref( Company())
     const fallBack = { name: 'CompanyList' }
     const id = route.params.id || null
 
@@ -187,9 +187,9 @@ export default defineComponent({
     })
 
     // methods
-    const readFetch = (id, payload) => companyResource.get(id, payload)
-    const createFetch = (payload) => companyResource.post(payload)
-    const updateFetch = (id, payload) => companyResource.patch(id, payload)
+    const readFetch = (id, query) => companyResource.get({id, query})
+    const createFetch = (payload) => companyResource.post({payload})
+    const updateFetch = (id, payload) => companyResource.patch({id, payload})
     const onSubmit = async () => {
       form.value.validate().then(async (success) => {
         if (success) {
@@ -199,7 +199,7 @@ export default defineComponent({
             create: () => callCreateFetch({ ...payload }),
             edit: () => callUpdateFetch(id, { ...payload }),
           }
-          const [res, error] = mode.value === 'create' ? await urlObj.create() : await urlObj.edit()
+          const [res] = mode.value === 'create' ? await urlObj.create() : await urlObj.edit()
           if (res) goBack()
         }
       })

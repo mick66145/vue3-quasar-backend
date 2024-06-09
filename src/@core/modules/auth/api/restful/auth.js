@@ -1,76 +1,74 @@
-import Resource from '@/@core/api/restful/resource'
 import request from '@/@core/utils/request'
 
-class AuthResource extends Resource {
-  constructor () {
-    super('auth')
-  }
+export const useAuthResource = ({ 
+  uri = 'auth'
+}) => {
 
-  async login (params) {
-    return await request({
-      url: `/${this.uri}/login`,
+  const login = (params) => {
+    return request({
+      url: `/${uri}/login`,
       method: 'post',
       data: params,
     }).then(res => res.data)
   }
 
-  async register (params) {
-    return await request({
-      url: `/${this.uri}/register`,
+  const register = (params) => {
+    return request({
+      url: `/${uri}/register`,
       method: 'post',
       data: params,
     }).then(res => res.data)
   }
 
-  async forgetPassword (params) {
-    return await request({
-      url: `/${this.uri}/forget_password`,
+  const forgetPassword = (params) => {
+    return request({
+      url: `/${uri}/forget_password`,
       method: 'post',
       data: params,
     }).then(res => res.data)
   }
 
-  async getVerifyCode (params) {
-    return await request({
-      url: `/${this.uri}/get-signup-verify-code`,
+  const getVerifyCode = (params) => {
+    return request({
+      url: `/${uri}/get-signup-verify-code`,
       method: 'post',
       data: params,
     }).then(res => res.data)
   }
 
-  async logout () {
-    return await request({
-      url: `/${this.uri}/logout`,
+  const logout = () => {
+    return request({
+      url: `/${uri}/logout`,
       method: 'post',
     })
   }
 
-  async refreshToken (params) {
-    return await request({
-      url: `/${this.uri}/refresh_token`,
+  const refreshToken = (params) => {
+    return request({
+      url: `/${uri}/refresh_token`,
       method: 'post',
       data: params,
     }).then(res => res.data)
   }
 
-  async me () {
-    return await request({
-      url: `/${this.uri}/me`,
+  const me = () => {
+    return request({
+      url: `/${uri}/me`,
       method: 'get',
     }).then(res => res.data)
   }
 
-  async profile (params) {
+  const profile = (params) => {
     return request({
-      url: `/${this.uri}/me`,
+      url: `/${uri}/me`,
       method: 'patch',
       data: params,
     })
   }
 
-  async permission () {
-    return await request({
-      url: `/${this.uri}/permission`,
+  const permission = () => {
+    return request({
+      url: `/${uri}/permission`,
       method: 'get',
     }).then(res => res.data)
       .then(res => {
@@ -90,13 +88,24 @@ class AuthResource extends Resource {
       })
   }
 
-  async changePassword (params) {
+  const changePassword = (params) => {
     return request({
-      url: `/${this.uri}/change_password`,
+      url: `/${uri}/change_password`,
       method: 'post',
       data: params,
     })
   }
-}
 
-export default AuthResource
+  return {
+    login,
+    register,
+    forgetPassword,
+    getVerifyCode,
+    logout,
+    refreshToken,
+    me,
+    profile,
+    permission,
+    changePassword,
+  }
+}

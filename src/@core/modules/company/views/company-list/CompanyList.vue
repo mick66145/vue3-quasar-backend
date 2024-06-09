@@ -32,7 +32,7 @@
             :field="field"
             :title="title"
             sortable
-            :min-width="$q.screen.lt.sm ? min_width : 'auto'"
+            :min-width="min_width"
           />
           <vxe-column title="操作" fixed="right" width="115">
             <template #default="{ row }">
@@ -64,7 +64,7 @@ import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 import useMessageDialog from '@/hooks/useMessageDialog'
 
-const companyResource = new CompanyResource()
+const companyResource = CompanyResource({})
 
 export default defineComponent({
   components: {
@@ -84,8 +84,8 @@ export default defineComponent({
     ])
 
     // methods
-    const fetchData = (payload) => companyResource.list(payload)
-    const delFetch = (id) => companyResource.delete(id)
+    const fetchData = (query) => companyResource.list({query})
+    const delFetch = (id) => companyResource.destroy({id})
     const refreshFetch = () => getDataList({ ...search })
     const onDelete = async (row) => {
       const res = await messageDelete({ title: '刪除', message: '確認刪除公司？' })

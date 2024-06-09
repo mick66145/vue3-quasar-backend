@@ -1,26 +1,31 @@
-import Base from '@/@core/models/modules/Base'
+import Base from '@/@core/models/modules/Base2'
 import { BasePermission } from '@/@core/modules/permission/models'
 import { convertDateTime } from '@/utils/data-convert'
 
-class Role extends Base {
-
+const Role = {
+  ...Base,
   //api欄位
-  id = "";
-  created_at = "";
-  name = "";
-  permissions = [];
-
-  constructor(obj) {
-    super();
-    if (obj) {
-      this.id = obj?.id
-      this.created_at = convertDateTime(obj?.created_at)
-      this.name = obj?.name
-      this.permissions = [...obj?.permissions].map(element => {
-        const permissionObj = new BasePermission(element)
-        return permissionObj
-      })
-    }
-  }
+  id : "",
+  created_at : "",
+  name : "",
+  permissions : [],
 }
-export default Role
+
+const RoleFactory = (item = null) => {
+  const factory = (item) => {
+    return {
+      //api欄位
+      id: item?.id || "",
+      created_at : item?.created_at ? convertDateTime(item?.created_at) : convertDateTime(),
+      name : item?.name || "",
+      permissions : item?.permissions ? [...item?.permissions].map(element => {
+        const permissionObj = BasePermission(element)
+        return permissionObj
+      }) : []
+    };
+  };
+
+  return factory(item||Role);
+}
+
+export default RoleFactory

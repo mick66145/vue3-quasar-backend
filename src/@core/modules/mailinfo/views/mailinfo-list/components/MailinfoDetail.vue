@@ -106,7 +106,7 @@ import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 import useDeltaConvert from '@/hooks/useDeltaConvert'
 
-const mailinfoResource = new MailinfoResource()
+const mailinfoResource = MailinfoResource({})
 
 export default defineComponent({
   components: {
@@ -118,21 +118,21 @@ export default defineComponent({
     // data
     const { mode } = toRefs(props)
     const route = useRoute()
-    const formData = ref(new Mailinfo())
+    const formData = ref(Mailinfo())
     const id = route.params.id || null
     
     // mounted
     onMounted(async () => {
       if (id) {
-        const [res, error] = await callReadFetch(id)
+        const [res] = await callReadFetch(id)
         formData.value = res
       }
     })
 
     // methods
-    const readFetch = (id, payload) => mailinfoResource.get(id, payload)
-    const createFetch = (payload) => mailinfoResource.post(payload)
-    const updateFetch = (id, payload) => mailinfoResource.patch(id, payload)
+    const readFetch = (id, query) => mailinfoResource.get({id, query})
+    const createFetch = (payload) => mailinfoResource.post({payload})
+    const updateFetch = (id, payload) => mailinfoResource.patch({id, payload})
     const onSubmit = async () => {
       form.value.validate().then(async (success) => {
         if (success) {

@@ -100,16 +100,16 @@
 
 import { defineComponent, ref, toRefs, onMounted } from 'vue-demi'
 import { useRoute } from 'vue-router'
-import { UserResource } from '@/@core/modules/user/api'
+import { useUserResource } from '@/@core/modules/user/api'
 import { CompanyJobResource } from '@/@core/modules/company-job/api'
 import { RoleResource } from '@/@core/modules/role/api'
 import { User } from '@/@core/modules/user/models'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 
-const userResource = new UserResource()
-const roleResource = new RoleResource()
-const companyJobResource = new CompanyJobResource()
+const userResource = useUserResource({})
+const roleResource = RoleResource({})
+const companyJobResource = CompanyJobResource({})
 
 export default defineComponent({
   props: {
@@ -119,7 +119,7 @@ export default defineComponent({
     // data
     const { mode } = toRefs(props)
     const route = useRoute()
-    const formData = ref(new User())
+    const formData = ref(User())
     const roleList = ref([])
     const companyJobList = ref([])
     const fallBack = { name: 'UserList' }
@@ -136,19 +136,19 @@ export default defineComponent({
     })
 
     // methods
-    const readFetch =  (id, payload) => userResource.get(id, payload)
-    const createFetch = (payload) => userResource.post(payload)
-    const updateFetch =  (id, payload) => userResource.patch(id, payload)
+    const readFetch =  (id, query) => userResource.get({id, query})
+    const createFetch = (payload) => userResource.post({payload})
+    const updateFetch =  (id, payload) => userResource.patch({id, payload})
     
-    const fetchRoleData =  (payload) => {
-      return roleResource.list(payload).then((res) => {
+    const fetchRoleData =  (query) => {
+      return roleResource.list({query}).then((res) => {
         roleList.value = []
         roleList.value = res.list
       })
     }
 
-    const fetchCompanyJobData = (payload) => {
-      return companyJobResource.list(payload).then((res) => {
+    const fetchCompanyJobData = (query) => {
+      return companyJobResource.list({query}).then((res) => {
         companyJobList.value = []
         companyJobList.value = res.list
       })
@@ -162,7 +162,7 @@ export default defineComponent({
             create: () => callCreateFetch({ ...payload }),
             edit: () => callUpdateFetch(id, { ...payload }),
           }
-          const [res, error] = mode.value === 'create' ? await urlObj.create() : await urlObj.edit()
+          const [res] = mode.value === 'create' ? await urlObj.create() : await urlObj.edit()
           if (res) goBack()
         }
       })

@@ -1,2 +1,2 @@
 
-export { default as BrowserHistoryResource } from './restful/browser-history'
+export { BrowserHistoryResource } from './restful/browser-history'

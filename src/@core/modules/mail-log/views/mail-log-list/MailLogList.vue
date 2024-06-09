@@ -54,7 +54,7 @@ import { defineComponent, ref, reactive } from 'vue-demi'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 
-const mailLogResource = new MailLogResource()
+const mailLogResource = MailLogResource({})
 
 export default defineComponent({
   components: {
@@ -81,12 +81,12 @@ export default defineComponent({
     ])
 
     // methods
-    const fetchData = (payload) => mailLogResource.list(payload)
-    const refreshFetch = async () => {
+    const fetchData = (query) => mailLogResource.list({query})
+    const refreshFetch = () => {
       const filter = { ...search }
       filter.start_date = filter.date_range?.from ? filter.date_range.from : null
       filter.end_date = filter.date_range?.to ? filter.date_range.to : null
-      return await getDataList({ ...filter })
+      return getDataList({ ...filter })
     }
     const showDialog = ({ id, mode, callRead }) => {
       dialog.value.showDialog({ id, mode, callRead })

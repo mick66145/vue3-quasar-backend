@@ -1,2 +1,2 @@
 
-export { default as RoleResource } from './restful/role'
+export { RoleResource } from './restful/role'

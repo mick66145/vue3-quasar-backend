@@ -1,11 +1,20 @@
-import Resource from '@/@core/api/restful/resource'
+import useResource from '@/hooks/useResource'
 import { Role } from '@/@core/modules/role/models'
 
-class RoleResource extends Resource {
-  constructor () {
-    super('role')
-    this.setModel(Role)
+export const RoleResource = ({ 
+  uri = 'role'
+}) => {
+  const { list , get , post , patch , put , destroy , selectAll } = useResource({uri , factory:Role})
+
+  return {
+    list,
+    get,
+    post,
+    patch,
+    put,
+    destroy,
+    selectAll
   }
 }
 
-export default RoleResource
+

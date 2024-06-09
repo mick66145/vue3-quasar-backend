@@ -15,7 +15,7 @@ import { BrowserHistoryResource } from '@/@core/modules/browser-history/api'
 import useCRUD from '@/hooks/useCRUD'
 import useCharts from '@/hooks/useChart'
 
-const browserHistoryResource = new BrowserHistoryResource()
+const browserHistoryResource = BrowserHistoryResource({})
 
 const pieChartOption = {
   tooltip: {
@@ -81,7 +81,7 @@ export default defineComponent({
     })
 
     // methods
-    const deviceTypeChartReportFetch = () => browserHistoryResource.deviceTypeChartReport()
+    const deviceTypeChartReportFetch = () => browserHistoryResource.deviceTypeChartReport({})
 
     // use
     const { callReadListFetch: callDeviceTypeChartReportFetch } = useCRUD({

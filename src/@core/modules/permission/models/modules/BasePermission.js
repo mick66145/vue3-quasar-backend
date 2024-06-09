@@ -1,18 +1,21 @@
-
-class BasePermission {
-    //api
-    id = ""            //權限ID
-    name = ""          //權限名稱
-    action = ""        //權限主要動作
-    display_name = ""
-
-    constructor(obj) {
-        if (obj) {
-            this.id = obj?.id;
-            this.name = obj?.name;
-            this.action = obj?.action;
-            this.display_name = obj?.display_name;
-        }
-    }
+const BasePermission = {
+    id : "",
+    name : "",
+    action : "",
+    display_name : ""
 }
-export default BasePermission;
+
+const BasePermissionFactory = (item = null) => {
+  const factory = (item) => {
+    return {
+      id: item?.id || "",
+      name: item?.name || "",
+      action: item?.action || "",
+      display_name : item?.display_name || "",
+    };
+  };
+
+  return factory(item||BasePermission);
+}
+
+export default BasePermissionFactory

@@ -1,11 +1,14 @@
-import Resource from '@/@core/api/restful/resource'
+import useResource from '@/hooks/useResource'
 import { Area } from '@/@core/modules/area/models'
 
-class AreaResource extends Resource {
-  constructor () {
-    super('area')
-    this.setModel(Area)
+export const AreaResource = ({ 
+  uri = 'area'
+}) => {
+  const { list , get } = useResource({uri , factory:Area})
+
+  return {
+    list,
+    get
   }
 }
 
-export default AreaResource

@@ -15,7 +15,7 @@ import { BrowserHistoryResource } from '@/@core/modules/browser-history/api'
 import useCRUD from '@/hooks/useCRUD'
 import useCharts from '@/hooks/useChart'
 
-const browserHistoryResource = new BrowserHistoryResource()
+const browserHistoryResource = BrowserHistoryResource({})
 
 const lineChrtOption = {
   tooltip: {
@@ -71,7 +71,7 @@ export default defineComponent({
     })
 
     // methods
-    const trafficChartReportFetch = () => browserHistoryResource.trafficChartReport()
+    const trafficChartReportFetch = () => browserHistoryResource.trafficChartReport({})
 
     // use
     const { callReadListFetch: callTraffichartReportFetch } = useCRUD({

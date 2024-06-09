@@ -12,7 +12,7 @@ import { useVModel } from '@vueuse/core'
 import { AreaResource } from '@/@core/modules/area/api'
 import useCRUD from '@/hooks/useCRUD'
 
-const areaResource = new AreaResource()
+const areaResource = AreaResource({})
 
 export default defineComponent({
   props: {
@@ -34,8 +34,8 @@ export default defineComponent({
 
     // methods
     const fetchData = () => {
-      const payload = { city_id: cityId.value }
-      return  areaResource.list(payload).then((res) => {
+      const query = { city_id: cityId.value }
+      return  areaResource.list({query}).then((res) => {
         areaList.value = []
         areaList.value = res.list
       })

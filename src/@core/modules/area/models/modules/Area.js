@@ -1,19 +1,22 @@
-import Base from '@/@core/models/modules/Base'
+import Base from '@/@core/models/modules/Base2'
 
-class Area extends Base {
-
-  //api欄位
-  id = "";
-  name = "";
-  detail = "";
-  
-  constructor(obj) {
-    super();
-    if(obj){
-      this.id = obj?.id
-      this.name = obj?.name
-      this.detail = obj?.detail
-    }
-  }
+const Area = {
+  ...Base,
+  id : "",
+  name : "",
+  detail : "",
 }
-export default Area
+
+const AreaFactory = (item = null) => {
+  const factory = (item) => {
+    return {
+      id: item?.id,
+      name: item?.name,
+      detail: item?.detail,
+    };
+  };
+
+  return factory(item||Area);
+}
+
+export default AreaFactory

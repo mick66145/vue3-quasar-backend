@@ -1,19 +1,24 @@
-import Base from '@/@core/models/modules/Base'
+import Base from '@/@core/models/modules/Base2'
 
-class CompanyJob extends Base {
-
-  //api欄位
-  id = "";
-  name = "";
-  parent_job = "";
-
-  constructor(obj) {
-    super();
-    if (obj) {
-      this.id = obj?.id
-      this.name = obj?.name
-      this.parent_job = obj?.parent_job
-    }
-  }
+const CompanyJob = {
+  ...Base,
+  id : "",
+  name : "",
+  parent_job : "",
 }
-export default CompanyJob
+
+const CompanyJobFactory = (item = null) => {
+  const factory = (item) => {
+    return {
+      id: item?.id,
+      name: item?.name,
+      parent_job: item?.parent_job,
+    };
+  };
+
+  return factory(item||CompanyJob);
+}
+
+export default CompanyJobFactory
+
+

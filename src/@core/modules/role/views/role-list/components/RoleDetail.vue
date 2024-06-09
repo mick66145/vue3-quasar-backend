@@ -89,8 +89,8 @@ import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 import _ from 'lodash-es'
 
-const roleResource = new RoleResource()
-const menuPermissionResource = new MenuPermissionResource()
+const roleResource = RoleResource({})
+const menuPermissionResource = MenuPermissionResource({})
 
 export default defineComponent({
   props: {
@@ -100,7 +100,7 @@ export default defineComponent({
     // data
     const { mode } = toRefs(props)
     const route = useRoute()
-    const formData = ref(new Role())
+    const formData = ref(Role())
     const allSelectd = ref(false)
     const menuPermissionList = ref([])
     const id = route.params.id || null
@@ -118,11 +118,11 @@ export default defineComponent({
     })
 
     // methods
-    const readFetch = (id, payload) => roleResource.get(id, payload)
-    const createFetch = (payload) => roleResource.post(payload)
-    const updateFetch = (id, payload) => roleResource.patch(id, payload)
+    const readFetch = (id, query) => roleResource.get({id, query})
+    const createFetch = (payload) => roleResource.post({payload})
+    const updateFetch = (id, payload) => roleResource.patch({id, payload})
     const fetchMenuPermissionData =  () => {
-      return menuPermissionResource.list().then((res) => {
+      return menuPermissionResource.list({}).then((res) => {
         menuPermissionList.value = []
         menuPermissionList.value = res.list
       })

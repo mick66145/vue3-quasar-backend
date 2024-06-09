@@ -1,2 +1,2 @@
 
-export { default as MailLogResource } from './restful/mail-log'
+export { MailLogResource } from './restful/mail-log'

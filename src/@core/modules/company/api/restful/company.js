@@ -1,11 +1,20 @@
-import Resource from '@/@core/api/restful/resource'
+import useResource from '@/hooks/useResource'
 import { Company } from '@/@core/modules/company/models'
 
-class CompanyResource extends Resource {
-  constructor () {
-    super('company')
-    this.setModel(Company)
+export const CompanyResource = ({ 
+  uri = 'company'
+}) => {
+  const { list , get , post , patch , put , destroy , selectAll } = useResource({uri , factory:Company})
+
+  return {
+    list,
+    get,
+    post,
+    patch,
+    put,
+    destroy,
+    selectAll
   }
 }
 
-export default CompanyResource
+

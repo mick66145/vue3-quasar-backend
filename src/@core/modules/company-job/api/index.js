@@ -1,2 +1,2 @@
 
-export { default as CompanyJobResource } from './restful/company-job'
+export { CompanyJobResource } from './restful/company-job'

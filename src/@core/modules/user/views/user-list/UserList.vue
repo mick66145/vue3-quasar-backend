@@ -32,7 +32,7 @@
             :field="field"
             :title="title"
             sortable
-            :min-width="$q.screen.lt.sm ? min_width : 'auto'"
+            :min-width="min_width"
           />
           <vxe-column title="操作" fixed="right" :width="$q.screen.lt.sm ? 115 : 171">
             <template #default="{ row }">
@@ -67,12 +67,12 @@
 <script>
 import UserListSearchBlock from './components/UserListSearchBlock.vue'
 import { defineComponent, ref, reactive } from 'vue-demi'
-import { UserResource } from '@/@core/modules/user/api'
+import { useUserResource } from '@/@core/modules/user/api'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 import useMessageDialog from '@/hooks/useMessageDialog'
 
-const userResource = new UserResource()
+const userResource = useUserResource({})
 
 export default defineComponent({
   components: {
@@ -93,9 +93,9 @@ export default defineComponent({
     ])
 
     // methods
-    const fetchData =  (payload) => userResource.list(payload)
-    const delFetch = (id) => userResource.delete(id)
-    const resetPasswordFetch = (id)=> userResource.resetPassword(id)
+    const fetchData =  (query) => userResource.list({query})
+    const delFetch = (id) => userResource.destroy({id})
+    const resetPasswordFetch = (id)=> userResource.resetPassword({id})
     const refreshFetch = () => callReadListFetch({ ...search })
     const onDelete = async (row) => {
       const res = await messageDelete({ title: '刪除', message: '確認刪除帳號？' })

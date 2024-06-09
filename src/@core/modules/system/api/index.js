@@ -1,2 +1,2 @@
 
-export { default as SystemResource } from './restful/system'
+export { SystemResource } from './restful/system'

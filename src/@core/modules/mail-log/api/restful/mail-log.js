@@ -1,11 +1,14 @@
-import Resource from '@/@core/api/restful/resource'
+import useResource from '@/hooks/useResource'
 import { MailLog } from '@/@core/modules/mail-log/models'
 
-class MailLogResource extends Resource {
-  constructor () {
-    super('mail_log')
-    this.setModel(MailLog)
+export const MailLogResource = ({ 
+  uri = 'mail_log'
+}) => {
+  const { list , get  } = useResource({uri , factory:MailLog})
+
+  return {
+    list,
+    get,
   }
 }
 
-export default MailLogResource

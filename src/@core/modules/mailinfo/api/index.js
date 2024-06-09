@@ -1,2 +1,2 @@
 
-export { default as MailinfoResource } from './restful/mailinfo'
+export { MailinfoResource } from './restful/mailinfo'

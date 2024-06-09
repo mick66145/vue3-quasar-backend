@@ -12,7 +12,7 @@ import { useVModel } from '@vueuse/core'
 import { CityResource } from '@/@core/modules/city/api'
 import useCRUD from '@/hooks/useCRUD'
 
-const cityResource = new CityResource()
+const cityResource = CityResource({})
 
 export default defineComponent({
   props: {
@@ -31,8 +31,8 @@ export default defineComponent({
     })
 
     // methods
-    const fetchData = (payload) => {
-      return cityResource.list(payload).then((res) => {
+    const fetchData = (query) => {
+      return cityResource.list({query}).then((res) => {
         cityList.value = []
         cityList.value = res.list
       })

@@ -1,2 +1,2 @@
 
-export { default as AreaResource } from './restful/area'
+export { AreaResource } from './restful/area'

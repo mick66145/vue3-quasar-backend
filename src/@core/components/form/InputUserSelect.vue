@@ -8,11 +8,11 @@
 
 <script>
 import { defineComponent, ref, onMounted } from 'vue-demi'
-import { UserResource } from '@/@core/modules/user/api'
+import { useUserResource } from '@/@core/modules/user/api'
 import { useVModel } from '@vueuse/core'
 import useCRUD from '@/hooks/useCRUD'
 
-const userResource = new UserResource()
+const userResource = useUserResource({})
 
 export default defineComponent({
   props: {
@@ -32,8 +32,8 @@ export default defineComponent({
 
     // methods
     const fetchData = () => {
-      const payload = {orderby: "created_at:desc"} 
-      return userResource.list(payload).then((res) => {
+      const query = {orderby: "created_at:desc"} 
+      return userResource.list({query}).then((res) => {
         userList.value = []
         userList.value = res.list
       })

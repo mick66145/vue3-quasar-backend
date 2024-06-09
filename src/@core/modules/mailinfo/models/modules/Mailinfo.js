@@ -1,35 +1,41 @@
-import Base from '@/@core/models/modules/Base'
+import Base from '@/@core/models/modules/Base2'
 
-class Mailinfo extends Base {
+const Mailinfo = {
+  ...Base,
 
   //api欄位
-  id = "";
-  name = "";
-  subject = "";
-  fromname = "";
-  tomail = "";
-  repeatname = "";
-  repeatmail = "";
-  cc = "";
-  bcc = "";
-  content_json = "";
-  content = "";
-  
-  constructor (obj) {
-    super();
-    if(obj){
-      this.id = obj?.id
-      this.name = obj?.name
-      this.subject = obj?.subject
-      this.fromname = obj?.fromname
-      this.tomail = obj?.tomail
-      this.repeatname = obj?.repeatname
-      this.repeatmail = obj?.repeatmail
-      this.cc = obj?.cc
-      this.bcc = obj?.bcc
-      this.content = obj?.content
-      this.content_json = obj?.content_json ? JSON.parse(obj?.content_json) : {}
-    }
-  }
+  id: "",
+  name: "",
+  subject: "",
+  fromname: "",
+  tomail: "",
+  repeatname: "",
+  repeatmail: "",
+  cc: "",
+  bcc: "",
+  content_json: "",
+  content: "",
 }
-export default Mailinfo
+
+const MailinfoFactory = (item = null) => {
+  const factory = (item) => {
+    return {
+      //api欄位
+      id : item?.id || "" ,
+      name : item?.name || "" ,
+      subject : item?.subject|| "" ,
+      fromname : item?.fromname || "" ,
+      tomail : item?.tomail || "" ,
+      repeatname : item?.repeatname || "" ,
+      repeatmail : item?.repeatmail || "" ,
+      cc : item?.cc || "" ,
+      bcc : item?.bcc || "" ,
+      content : item?.content || "" ,
+      content_json : item?.content_json ? JSON.parse(item?.content_json) : {}
+    };
+  };
+
+  return factory(item || Mailinfo);
+}
+
+export default MailinfoFactory

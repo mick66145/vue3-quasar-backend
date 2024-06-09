@@ -71,7 +71,7 @@ import { useVModel } from '@vueuse/core'
 import { CountryCodeResource } from '@/@core/modules/country-code/api'
 import useCRUD from '@/hooks/useCRUD'
 
-const countryCodeResource = new CountryCodeResource()
+const countryCodeResource = CountryCodeResource({})
 
 export default defineComponent({
   props: {
@@ -94,8 +94,8 @@ export default defineComponent({
     })
 
     // methods
-    const fetchData = async (payload) => {
-      return await countryCodeResource.list(payload).then((res) => {
+    const fetchData = async (query) => {
+      return await countryCodeResource.list({query}).then((res) => {
         countryCodeList.value = []
         countryCodeList.value = res.list
       })

@@ -16,15 +16,13 @@ import { MailLogResource } from '@/@core/modules/mail-log/api'
 import { MailLog } from '@/@core/modules/mail-log/models'
 import useDialog from '@/hooks/useDialog'
 
-const mailLogResource = new MailLogResource()
+const mailLogResource = MailLogResource({})
 
 export default defineComponent({
   emits: ['save'],
   setup (props, { emit }) {
     // methods
-    const readFetch = async (id, payload) => {
-      return await mailLogResource.get(id, payload)
-    }
+    const readFetch = (id, query) => mailLogResource.get({id, query})
     const onSave = async () => {
       const [res] = await save()
       if (res) emit('save')
@@ -35,7 +33,7 @@ export default defineComponent({
 
     // use
     const { form, data, isShowDialog, showDialog, save } = useDialog({
-      formData: new MailLog(),
+      formData: MailLog(),
       readFetch: readFetch,
     })
 

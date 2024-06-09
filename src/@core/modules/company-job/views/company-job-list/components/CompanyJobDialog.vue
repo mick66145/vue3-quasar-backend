@@ -22,15 +22,15 @@ import { CompanyJobResource } from '@/@core/modules/company-job/api'
 import { CompanyJob } from '@/@core/modules/company-job/models'
 import useDialog from '@/hooks/useDialog'
 
-const companyJobResource = new CompanyJobResource()
+const companyJobResource = CompanyJobResource({})
 
 export default defineComponent({
   emits: ['save'],
   setup (props, { emit }) {
     // methods
-    const readFetch = (id, payload) => companyJobResource.get(id, payload)
-    const createFetch = (payload) => companyJobResource.post(payload)
-    const updateFetch =  (id, payload) => companyJobResource.patch(id, payload)
+    const readFetch = (id, query) => companyJobResource.get({id, query})
+    const createFetch = (payload) => companyJobResource.post({payload})
+    const updateFetch =  (id, payload) => companyJobResource.patch({id, payload})
     
     const onSave = async () => {
       const [res] = await save()
@@ -42,7 +42,7 @@ export default defineComponent({
 
     // use
     const { form, data, isShowDialog, showDialog, save } = useDialog({
-      formData: new CompanyJob(),
+      formData: CompanyJob(),
       readFetch: readFetch,
       createFetch: createFetch,
       updateFetch: updateFetch,

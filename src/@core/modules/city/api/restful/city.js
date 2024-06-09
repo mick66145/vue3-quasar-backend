@@ -1,11 +1,15 @@
-import Resource from '@/@core/api/restful/resource'
+import useResource from '@/hooks/useResource'
 import { City } from '@/@core/modules/city/models'
 
-class CityResource extends Resource {
-  constructor () {
-    super('city')
-    this.setModel(City)
+export const CityResource = ({ 
+  uri = 'city'
+}) => {
+  const { list , get } = useResource({uri , factory:City})
+
+  return {
+    list,
+    get
   }
 }
 
-export default CityResource
+

@@ -27,7 +27,7 @@
             :field="field"
             :title="title"
             sortable
-            :min-width="$q.screen.lt.sm ? min_width : 'auto'"
+            :min-width="min_width"
           />
           <vxe-column title="操作" fixed="right" width="57">
             <template #default="{ row }">
@@ -52,7 +52,7 @@ import { MailinfoResource } from '@/@core/modules/mailinfo/api'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 
-const mailinfoResource = new MailinfoResource()
+const mailinfoResource = MailinfoResource({})
 
 export default defineComponent({
   components: {
@@ -71,7 +71,7 @@ export default defineComponent({
       { title: '回覆者信箱', field: 'repeatmail', min_width: '130' },
     ])
     // methods
-    const fetchData = (payload) => mailinfoResource.list(payload)
+    const fetchData = (query) => mailinfoResource.list({query})
     const refreshFetch = () => getDataList({ ...search })
 
     // use
