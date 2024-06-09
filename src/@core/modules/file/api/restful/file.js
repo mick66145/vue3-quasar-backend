@@ -1,25 +1,36 @@
 import Configuration from '@/configuration'
-import Resource from '@/@core/api/restful/resource'
+import useResource from '@/hooks/useResource'
 import request from '@/@core/utils/request'
 
 const fileBaseUrl = `${Configuration('fileServerHost')}`
 
-class FileResource extends Resource {
-  constructor () {
-    super('file')
-  }
+export const FileResource = ({
+  uri = 'file'
+}) => {
 
-  async upload ({ file }) {
+  const upload = ({ file }) => {
     const formData = new FormData()
     formData.append('file', file)
-    return await request({
+    return request({
       baseURL: `${fileBaseUrl}`,
-      url: `/${this.uri}/upload`,
+      url: `/${uri}/upload`,
       method: 'post',
       data: formData,
       headers: { 'Content-Type': 'multipart/form-data' },
     })
   }
+
+  const { list, get, post, patch, put, destroy, selectAll } = useResource({ uri })
+
+  return {
+    list,
+    get,
+    post,
+    patch,
+    put,
+    destroy,
+    selectAll,
+    upload
+  }
 }
 
-export default FileResource
