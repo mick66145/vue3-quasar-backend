@@ -12,7 +12,7 @@ import { useVModel } from '@vueuse/core'
 import { AreaResource } from '@/@core/modules/area/api'
 import useCRUD from '@/hooks/useCRUD'
 
-const areaResource = new AreaResource()
+const areaResource = AreaResource({})
 
 export default defineComponent({
   props: {
