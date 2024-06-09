@@ -64,7 +64,7 @@ import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 import useMessageDialog from '@/hooks/useMessageDialog'
 
-const roleResource = new RoleResource()
+const roleResource = RoleResource({})
 
 export default defineComponent({
   components: {
@@ -81,8 +81,8 @@ export default defineComponent({
     ])
 
     // methods
-    const fetchData = (payload) => roleResource.list(payload)
-    const delFetch =  (id) => roleResource.delete(id)
+    const fetchData = (query) => roleResource.list({query})
+    const delFetch =  (id) => roleResource.destroy({id})
     const refreshFetch = () => getDataList({ ...search })
     const onDelete = async (row) => {
       const res = await messageDelete({ title: '刪除', message: '確認刪除權限群組？' })

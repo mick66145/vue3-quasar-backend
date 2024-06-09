@@ -108,7 +108,7 @@ import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 
 const userResource = useUserResource({})
-const roleResource = new RoleResource()
+const roleResource = RoleResource({})
 const companyJobResource = CompanyJobResource({})
 
 export default defineComponent({
@@ -141,7 +141,7 @@ export default defineComponent({
     const updateFetch =  (id, payload) => userResource.patch({id, payload})
     
     const fetchRoleData =  (query) => {
-      return roleResource.list(query).then((res) => {
+      return roleResource.list({query}).then((res) => {
         roleList.value = []
         roleList.value = res.list
       })
@@ -162,7 +162,7 @@ export default defineComponent({
             create: () => callCreateFetch({ ...payload }),
             edit: () => callUpdateFetch(id, { ...payload }),
           }
-          const [res, error] = mode.value === 'create' ? await urlObj.create() : await urlObj.edit()
+          const [res] = mode.value === 'create' ? await urlObj.create() : await urlObj.edit()
           if (res) goBack()
         }
       })
