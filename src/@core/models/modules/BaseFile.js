@@ -1,30 +1,34 @@
 import Base from '@/@core/models/modules/Base'
 
-class BaseFile extends Base {
+const BaseFile = {
+    ...Base,
+    //api欄位
+    id : "",
+    mime : "",
+    name : "",
+    size : "",
+    url : "",
 
-    //api
-    id = ""
-    mime = ""
-    name = ""
-    size = ""
-    url = ""
-    
-    //map
-    filename = ""
-
-    constructor(obj) {
-        super();
-        if (obj) {
-            //api
-            this.id = obj?.id || "";
-            this.mime = obj?.mime || "";
-            this.name = obj?.name || "";
-            this.size = obj?.size || "";
-            this.url = obj?.url || "";
-
-            //map
-            this.filename = this.name
-        }
-    }
+    //map欄位
+    filename : "",
 }
-export default BaseFile;
+
+const BaseFileFactory = (item = null) => {
+    const factory = (item) => {
+        return {
+            //api欄位
+            id : item?.id || "",
+            mime : item?.mime || "",
+            name : item?.name || "",
+            size : item?.size || "",
+            url : item?.url || "",
+
+            //map欄位
+            filename : item?.name || "",
+        };
+    };
+    return factory(item || BaseFile);
+}
+
+export default BaseFileFactory
+

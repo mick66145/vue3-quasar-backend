@@ -1,27 +1,34 @@
 import Base from '@/@core/models/modules/Base'
 
-class BaseImage extends Base {
-
-    //api
-    id = ""
-    title = ""
-    alt = ""
-    mime = ""
-    name = ""
-    size = ""
-    url = ""
-
-    constructor(obj) {
-        super();
-        if (obj) {
-            this.id = obj?.id || "";
-            this.title = obj?.title || "";
-            this.alt = obj?.alt || "";
-            this.mime = obj?.mime || "";
-            this.name = obj?.name || "";
-            this.size = obj?.size || "";
-            this.url = obj?.url || "";
-        }
-    }
+const BaseImage = {
+    ...Base,
+    //api欄位
+    id : "",
+    title : "",
+    alt : "",
+    mime : "",
+    name : "",
+    size : "",
+    url : "",
 }
-export default BaseImage;
+
+const BaseImageFactory = (item = null) => {
+    const factory = (item) => {
+        return {
+            //api欄位
+            id : item?.id || "",
+            title : item?.title || "",
+            alt : item?.alt || "",
+            mime : item?.mime || "",
+            name : item?.name || "",
+            size : item?.size || "",
+            url : item?.url || "",
+
+        };
+    };
+    return factory(item || BaseImage);
+}
+
+export default BaseImageFactory
+
+

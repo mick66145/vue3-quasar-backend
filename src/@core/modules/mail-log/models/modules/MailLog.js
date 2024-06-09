@@ -1,4 +1,4 @@
-import Base from '@/@core/models/modules/Base2'
+import Base from '@/@core/models/modules/Base'
 import { convertDateTime } from '@/utils/data-convert'
 
 const MailLog = {
