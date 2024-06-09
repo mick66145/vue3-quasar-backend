@@ -1,2 +1,2 @@
 
-export { default as FileResource } from './restful/file'
+export { FileResource } from './restful/file'

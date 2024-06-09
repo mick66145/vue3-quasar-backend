@@ -1,36 +1,39 @@
-import Base from '@/@core/models/modules/Base'
+import Base from '@/@core/models/modules/Base2'
 import { convertDateTime } from '@/utils/data-convert'
 
-class MailLog extends Base {
-
-  //api欄位
-  id = "";
-  from = "";
-  to = "";
-  cc = "";
-  bcc = "";
-  reply_to = "";
-  subject = "";
-  send_datetime = "";
-  content = "";
-  state = "";
-  state_text = "";
-
-  constructor (obj) {
-    super();
-    if (obj) {
-      this.id = obj?.id
-      this.from = obj?.from
-      this.to = obj?.to
-      this.cc = obj?.cc
-      this.bcc = obj?.bcc
-      this.reply_to = obj?.reply_to
-      this.subject = obj?.subject
-      this.send_datetime = obj?.send_datetime && convertDateTime(obj?.send_datetime)
-      this.content = obj?.content
-      this.state = obj?.state
-      this.state_text = obj?.state_text
-    }
-  }
+const MailLog = {
+  ...Base,
+  id : "",
+  from : "",
+  to : "",
+  cc : "",
+  bcc : "",
+  reply_to : "",
+  subject : "",
+  send_datetime : "",
+  content : "",
+  state : "",
+  state_text : "",
 }
-export default MailLog
+
+const MailLogFactory = (item = null) => {
+  const factory = (item) => {
+    return {
+      id : item?.id || "",
+      from : item?.from || "",
+      to : item?.to || "",
+      cc : item?.cc || "",
+      bcc : item?.bcc || "",
+      reply_to : item?.reply_to || "",
+      subject : item?.subject || "",
+      send_datetime : item?.send_datetime ? convertDateTime(obj?.send_datetime) : convertDateTime(),
+      content : item?.content || "",
+      state : item?.state || "",
+      state_text : item?.state_text || "",
+    };
+  };
+
+  return factory(item || MailLog);
+}
+
+export default MailLogFactory
